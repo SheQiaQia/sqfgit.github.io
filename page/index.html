@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>城南中学</title>
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<style>
@@ -18,7 +18,6 @@
 			
 			.lay .pos {
 				position: absolute;
-				
 				left: 0px;
 				top: 743px;
 				width: 440px;
@@ -35,15 +34,29 @@
 	</head>
 
 	<div class="lay">
-		<iframe id="mainiframe" width="100%" height="600" onload="changeFrameHeight()" frameborder="0" scrolling="auto"   src="http://www.thingjs.com/guide/sampleindex.html?name=/uploads/wechat/6IyD54m56KW//cnzxAll.js?n=0.5462031871415503"></iframe>
+		<iframe id="mainiframe" width="100%" height="600" onload="changeFrameHeight()" frameborder="0" scrolling="auto" src="http://www.thingjs.com/guide/sampleindex.html?name=/uploads/wechat/6IyD54m56KW//cnzxAll.js?n=0.5462031871415503"></iframe>
 		<div class="pos">城&nbsp;&nbsp;南&nbsp;&nbsp;中&nbsp;&nbsp;学&nbsp;&nbsp;全&nbsp;&nbsp;景&nbsp;&nbsp;图</div>
 	</div>
 	<script type="text/javascript">
-		 function changeFrameHeight(){
-        var ifm= document.getElementById("mainiframe");
-        ifm.height=document.documentElement.clientHeight-100; //56是头顶的高度，和网友估计不一样。
-    }
-    $(function(){ window.onresize=function(){
-            changeFrameHeight(); }}); //这里不知道是否还要 $(function(){}) 这个闭包吗？后证实不需要
+		function changeFrameHeight() {
+			var ifm = document.getElementById("mainiframe");
+			ifm.height = document.documentElement.clientHeight - 100; //56是头顶的高度，和网友估计不一样。
+		}
+		$(function() {
+			window.onresize = function() {
+				changeFrameHeight();
+			}
+		}); //这里不知道是否还要 $(function(){}) 这个闭包吗？后证实不需要
+
+		document.domain = 'sheqiaqia.github.io';
+		function aa(str) {
+			console.log(str);
+		}
+		window.onload = function() {
+			document.getElementById('mainiframe').contentWindow.bb('aaa');
+		}
 	</script>
+	<!--test.morningstar.com/test.html -->
+	
+
 </html>
