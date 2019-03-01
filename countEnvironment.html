@@ -1,0 +1,437 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>环境安全大数据分析平台 - 平安校园大数据分析平台</title>
+<script type="text/javascript" src="layui/layui.js"></script>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countEnvironment.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<link rel="stylesheet" type="text/css" href="css/ball.css"/>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".count_tab_001_a").each(function(index, element) {
+		   $(this).click(function(){
+				var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+		   });
+		});
+		$(".count_tab_002_a").each(function(index, element) {
+		   $(this).click(function(){
+				var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+		   });
+		});
+		$(".count_tab_003_a").each(function(index, element) {
+		   $(this).click(function(){
+				var this_index = index;
+				$(".count_tab_003_a").removeClass("current");
+				$(this).addClass("current");
+		   });
+		});
+		$(".count_tab_004_a").each(function(index, element) {
+		   $(this).click(function(){
+				var this_index = index;
+				$(".count_tab_004_a").removeClass("current");
+				$(this).addClass("current");
+		   });
+		});
+		$(".numMain").each(function(index, element) {
+			if(Number($(this).html())<0.061){
+				$(this).css("color","#3cc738");
+			}else if(Number($(this).html())>0.061&&Number($(this).html())<0.081){
+				$(this).css("color","#fb6f1a");
+			}else{
+				$(this).css("color","#bb0000");
+			}
+        });
+		var thisNum=2;
+		var thisIndex;
+		$(".count_tab_003_mainA").each(function(index, element) {
+            $(this).click(function(){
+				if($(this).hasClass("current")){
+					thisNum-=1;
+					$(this).removeClass("current");
+					thisIndex = index;
+					$(".count_tab_003_main").each(function(index, element) {
+                        if(index==thisIndex){
+							$(this).removeClass("current");
+						}
+                    });
+					myChart_resize_02()
+				}else if($(".count_tab_003_mainA.current").length==2){
+					alert("最多可以选择显示2个视图");
+				}else{
+					$(this).addClass("current");
+					thisIndex = index;
+					$(".count_tab_003_main").each(function(index, element) {
+                        if(index==thisIndex){
+							$(this).addClass("current");
+						}
+                    });
+					myChart_resize_02()
+				}
+			});
+        });
+		setTimeout(thisresize,800);
+	});
+	$(window).resize(function(){
+		thisresize();
+	});
+	function thisresize(){
+		$(".count_tab_003_mainA").each(function(index, element) {
+            $(this).css("line-height",$(this).height()+"px");
+        });
+	}
+</script>
+
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a current"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box" style="height:25%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">甲醛检测</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                       		<div id="slideBox" class="slideBox">
+                                <div class="bd">
+                                    <ul>
+                                        <li>
+                                        	<div class="jqjcBox">
+                                            	<div class="title">地点:智慧学校103教室</div>
+                                                <div class="num"><span class="numMain">0.05</span><span class="numText">mg/m3</span></div>
+                                                <div class="numTip">标准 : <=0.08mg/m3</div>
+                                            </div>
+                                        	<div class="jqjcBox">
+                                            	<div class="title">地点:智慧学校201教室</div>
+                                                <div class="num"><span class="numMain">0.09</span><span class="numText">mg/m3</span></div>
+                                                <div class="numTip">标准 : <=0.08mg/m3</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                        	<div class="jqjcBox">
+                                            	<div class="title">地点:智慧学校303教室</div>
+                                                <div class="num"><span class="numMain">0.07</span><span class="numText">mg/m3</span></div>
+                                                <div class="numTip">标准 : <=0.08mg/m3</div>
+                                            </div>
+                                        	<div class="jqjcBox">
+                                            	<div class="title">地点:智慧学校403教室</div>
+                                                <div class="num"><span class="numMain">0.06</span><span class="numText">mg/m3</span></div>
+                                                <div class="numTip">标准 : <=0.08mg/m3</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="hd">
+                                    <ul></ul>
+                                </div>
+                            </div>
+							<script type="text/javascript">
+                                setTimeout(function(){
+                                    TouchSlide({ 
+                                        slideCell:"#slideBox",
+                                        titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+                                        mainCell:".bd ul", 
+                                        effect:"leftLoop", 
+                                        autoPage:true,//自动分页
+                                        autoPlay:true, //自动播放
+                                        interTime:10000
+                                    });
+								},800);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:35%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">PM2.5/PM10趋势分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_004">
+                                <a href="javascript:" class="count_tab_004_a current">24小时</a>
+                                <a href="javascript:" class="count_tab_004_a">一个月</a>
+                                <a href="javascript:" class="count_tab_004_a">一年</a>
+                            </div>
+                            <div class="count_tab_004_main">
+                                <div class="count_tab_004_detail current" id="count_02"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:40%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">光照度/紫外线分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">24小时</a>
+                                <a href="javascript:" class="count_tab_001_a">一个月</a>
+                                <a href="javascript:" class="count_tab_001_a">一年</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_tab_001_detail current" id="count_03"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_common_box" id="count_common_box" style="height:60%;padding-top:20px;">
+                	<!--<div class="count_middle_001" id="count_01" style=" display: none"></div>-->
+                	<div id="main">
+				        <div>
+				        	<p class="main_p1">温度</p>
+				        	<p class="main_p2">[50°C]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">湿度</p>
+				        	<p class="main_p2">[50%]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">PM2.5</p>
+				        	<p class="main_p2">[63]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">PM10</p>
+				        	<p class="main_p2">[50]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">噪音</p>
+				        	<p class="main_p2">[50dB]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">风速</p>
+				        	<p class="main_p2">[1m/s]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">风力</p>
+				        	<p class="main_p2">[41.4m/s]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">风向</p>
+				        	<p class="main_p2">[偏东风]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">气压</p>
+				        	<p class="main_p2">[100kPa]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">二氧化碳</p>
+				        	<p class="main_p2">[3%]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">雨量</p>
+				        	<p class="main_p2">[2mm]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">土壤温湿度</p>
+				        	<p class="main_p2">[50]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">氧气</p>
+				        	<p class="main_p2">[10%]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">光照度</p>
+				        	<p class="main_p2">[30Lux]</p>
+				        </div>
+				        <div>
+				        	<p class="main_p1">紫外线</p>
+				        	<p class="main_p2">[10nm]</p>
+				        </div>
+				        
+				    </div>
+
+                </div>
+                <div class="count_common_box" style="width:175%;height:40%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">气象创客教育</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-left:340px;">
+                            <div class="count_tab_003">
+                                <a href="javascript:" class="count_tab_003_a current">24小时</a>
+                                <a href="javascript:" class="count_tab_003_a">一个月</a>
+                                <a href="javascript:" class="count_tab_003_a">一年</a>
+                            </div>
+                            <div class="count_tab_003_choose">
+                            	<div class="count_tab_003_choose_box">
+                                    <a href="javascript:" class="count_tab_003_mainA current">风向</a>
+                                    <a href="javascript:" class="count_tab_003_mainA current">PM2.5</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">PM10</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">温度</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">湿度</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">噪音</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">风速</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">气压</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">二氧化碳</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">雨量</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">土壤温度</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">土壤湿度</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">氧气</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">光照度</a>
+                                    <a href="javascript:" class="count_tab_003_mainA">紫外线</a>
+                                </div>
+                            </div>
+                            <div class="count_tab_003_detail current">
+                            	<div class="count_tab_003_main current" name="风向">
+                                	<span class="count_tab_003_main_text">风向</span>
+                                    <span class="count_tab_003_main_box" id="count_fx"></span>
+                                </div>
+                            	<div class="count_tab_003_main current" name="PM2.5">
+                                	<span class="count_tab_003_main_text">PM2.5</span>
+                                    <span class="count_tab_003_main_box" id="count_pm25"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="PM10">
+                                	<span class="count_tab_003_main_text">PM10</span>
+                                    <span class="count_tab_003_main_box" id="count_pm10"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="温度">
+                                	<span class="count_tab_003_main_text">温度(°C)</span>
+                                    <span class="count_tab_003_main_box" id="count_wd"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="湿度">
+                                	<span class="count_tab_003_main_text">湿度(%)</span>
+                                    <span class="count_tab_003_main_box" id="count_sd"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="噪音">
+                                	<span class="count_tab_003_main_text">噪音(分贝)</span>
+                                    <span class="count_tab_003_main_box" id="count_zy">
+                                </span>
+                                </div>
+                            	<div class="count_tab_003_main" name="风速">
+                                	<span class="count_tab_003_main_text">风速(m/s)</span>
+                                    <span class="count_tab_003_main_box" id="count_fs"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="气压">
+                                	<span class="count_tab_003_main_text">气压(Pa)</span>
+                                    <span class="count_tab_003_main_box" id="count_qy"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="二氧化碳">
+                                	<span class="count_tab_003_main_text">二氧化碳(%)</span>
+                                    <span class="count_tab_003_main_box" id="count_eyht"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="雨量">
+                                	<span class="count_tab_003_main_text">雨量(毫米)</span>
+                                    <span class="count_tab_003_main_box" id="count_yl"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="土壤温度">
+                                	<span class="count_tab_003_main_text">土壤温度(°C)</span>
+                                    <span class="count_tab_003_main_box" id="count_trwd"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="土壤湿度">
+                                	<span class="count_tab_003_main_text">土壤湿度(%)</span>
+                                    <span class="count_tab_003_main_box" id="count_trsd"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="氧气">
+                                	<span class="count_tab_003_main_text">氧气(%)</span>
+                                    <span class="count_tab_003_main_box" id="count_yq"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="光照度">
+                                	<span class="count_tab_003_main_text">光照度(lux)</span>
+                                    <span class="count_tab_003_main_box" id="count_gzd"></span>
+                                </div>
+                            	<div class="count_tab_003_main" name="紫外线">
+                                	<span class="count_tab_003_main_text">紫外线(uw/cm2)</span>
+                                    <span class="count_tab_003_main_box" id="count_zwx"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <!--<div class="count_common_box" style="height:10%;padding-top:10px;">
+                    <iframe width="100%" scrolling="no" height="100%" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&color=%23FFFFFF&icon=1&py=chaozhou&num=2&site=12"></iframe>
+                </div>-->
+                <div class="count_common_box" style="height:60%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">温湿度分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current">24小时</a>
+                                <a href="javascript:" class="count_tab_002_a">一个月</a>
+                                <a href="javascript:" class="count_tab_002_a">一年</a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current" id="count_04"></div>
+                                <div class="count_tab_002_detail current" id="count_05"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartEnvironment.js"></script>
+<script src="js/countEncironmentBall.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

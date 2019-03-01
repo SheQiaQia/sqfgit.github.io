@@ -1,0 +1,509 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>消防大数据分析平台</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countFire.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		thisResize();
+	});
+	function thisResize(){
+		$(".fff_f_text").css("padding-left",$(".fff_f_img").innerWidth()+"px");
+	}
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a current"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box" style="height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">近三个月预警事件</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_05">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">2月设备在线率</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_06">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:40%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">单位消防设备</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="ylbzzy">
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_xfsb_001.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">50<span class="smallText">个</span></span><span class="text">烟雾报警器</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_xfsb_002.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">45<span class="smallText">个</span></span><span class="text">温度报警器</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_xfsb_003.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">50<span class="smallText">个</span></span><span class="text">可燃气报警器</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_xfsb_004.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">50<span class="smallText">个</span></span><span class="text">水压传感器</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_xfsb_005.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">26<span class="smallText">个</span></span><span class="text">水位传感器</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_xfsb_006.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">15<span class="smallText">个</span></span><span class="text">消防监控</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_middle_001">
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">预警事件</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">3568</span>
+                                <span style="font-size:16px;margin-left:10px;">件</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">设备故障率</span><span class="num">23%</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">实时巡检率</span><span class="num">90%</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">实时演习率</span><span class="num">90%</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">平均水压</span><span class="num">125pa</span></div>
+                            </div>
+                        </div>
+                        <div class="count_middle_001_left">
+                            <div class="count_middle_001_left_box" id="count_middle_001"></div>
+                            <div class="count_middle_001_left_box" id="count_middle_002"></div>
+                        </div>
+                        <div class="count_middle_001_right">
+                            <div class="count_middle_001_right_box" id="count_middle_003"></div>
+                            <div class="count_middle_001_right_box" id="count_middle_004"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_middle_002">
+                    <div class="count_middle_002_box">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">最新预警事件</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_4">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">地点</span>
+                                    <span class="th">事件</span>
+                                    <span class="th">结果</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼五楼</td>
+                                            <td>测试火警</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼四楼</td>
+                                            <td>真实火警</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼六楼</td>
+                                            <td>真实火警</td>
+                                            <td class="text_red">未处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼二楼</td>
+                                            <td>演习火警</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼五楼</td>
+                                            <td>真实火警</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼五楼</td>
+                                            <td>真实火警</td>
+                                            <td class="text_red">未处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼五楼</td>
+                                            <td>演习火警</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼五楼</td>
+                                            <td>真实火警</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼五楼</td>
+                                            <td>真实火警</td>
+                                            <td class="text_red">未处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-31 10:55</td>
+                                            <td>智信大楼五楼</td>
+                                            <td>演习火警</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box" style="height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">风向风力风速</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="fff">
+                            	<div class="fff_fx">
+                                	<div class="fff_fx_box">
+                                        <div class="commonBoxTop"></div>
+                                        <div class="commonBoxBottom"></div>
+                                    	<span class="fff_fx_img">
+                                        	<img src="images/img_fff_001.png" alt="" />
+                                            <span class="fff_fx_text_small">风向</span>
+                                        </span>
+                                        <span class="fff_fx_text_big">西北偏北</span>
+                                    </div>
+                                </div>
+                                <div class="fff_fl_fx">
+                                	<div class="fff_f_main">
+                                    	<div class="fff_f_box">
+                        					<div class="commonBoxTop"></div>
+                                            <span class="fff_f_img"><img src="images/img_fff_003.png" alt="" /></span>
+                                            <span class="fff_f_text">
+                                            	<span class="fff_f_text_box">
+                                            		<span class="fff_f_text_small">风力</span>
+                                                	<span class="fff_f_text_big">5级</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                	<div class="fff_f_main">
+                                    	<div class="fff_f_box">
+                        					<div class="commonBoxTop"></div>	
+                                            <span class="fff_f_img rotate"><img src="images/img_fff_002.png" alt="" /></span>
+                                            <span class="fff_f_text">
+                                            	<span class="fff_f_text_box">
+                                            		<span class="fff_f_text_small">风速</span>
+                                                	<span class="fff_f_text_big">1m/s</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">各楼层消防设备</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_07">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:40%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">单位消防资源</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="dwxfzy">
+                            	<div id="slideBox" class="slideBox">
+                                    <div class="bd">
+                                        <ul>
+                                            <li>
+                                            	<div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_001.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">50<span class="smallText">个</span></span><span class="text">灭火器</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_002.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">45<span class="smallText">把</span></span><span class="text">消防斧</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_003.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">50<span class="smallText">个</span></span><span class="text">防毒面具</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_004.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">50<span class="smallText">个</span></span><span class="text">重点路口全景</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_005.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">26<span class="smallText">个</span></span><span class="text">附近消防栓</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_006.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">15<span class="smallText">个</span></span><span class="text">附近消防站</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                            	<div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_007.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">15<span class="smallText">个</span></span><span class="text">重点路口</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            	<div class="dwxfzy_box">
+                                                    <div class="dwxfzy_main">
+                                                        <span class="img">
+                                                            <img src="images/img_dwxfzy_008.png" alt="" />
+                                                        </span>
+                                                        <span class="mainText">
+                                                            <span class="mainTextBox">
+                                                                <span class="num">15<span class="smallText">个</span></span><span class="text">重点保护对象</span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="hd">
+                                        <ul>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    setTimeout(function(){
+                                        TouchSlide({ 
+                                            slideCell:"#slideBox",
+                                            titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+                                            mainCell:".bd ul", 
+                                            effect:"leftLoop", 
+                                            autoPage:true,//自动分页
+                                            autoPlay:true, //自动播放
+                                            interTime:10000
+                                        });
+                                        /*$(".slideBox .bd ul li").height($(".count_tab_002_main").height()-50);*/
+                                    },800);
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartFire.js"></script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>平安校园大数据分析平台</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countIndex.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+	<h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+	<!-- 星星背景 Str-->
+    <div class="starBg"></div>
+	<!-- 星星背景 End-->
+    <div class="count_main">
+    	<div class="count_title">
+        	<div class="count_title_detail">
+            	<div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a current"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+        	<!-- 详情代码Str -->
+        	<div class="count_left">
+                <div class="count_common_box count_left_002">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">来访安全</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                        	<div class="count_left_002_box">
+                            	<div class="counr_left_box_detail" id="count_left_002"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            	<div class="count_common_box count_left_001">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">消防安全</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                        	<div class="count_left_001_left" id="count_left_001"></div>
+                            <div class="count_left_001_right">
+                            	<div class="count_common_textBox">
+                                	<span class="count_common_textMain">智能设备 : 20个<span class="text_green ml">正常在线</span></span>
+                                </div>
+                            	<div class="count_common_textBox">
+                                	<span class="count_common_textMain">最近巡检 : 2018-01-08<span class="text_green ml">正常</span></span>
+                                </div>
+                            	<div class="count_common_textBox">
+                                	<span class="count_common_textMain">最近演习 : 2018-02-08<span class="text_green ml">正常</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box count_left_003">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">校车安全</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                            <div class="count_left_003_box">
+                            	<div class="count_left_003_box_text">上次</div>
+                                <div class="count_left_003_main" id="count_left_003"></div>
+                            </div>
+                            <div class="count_left_003_box">
+                            	<div class="count_left_003_box_text">历史</div>
+                                <div class="count_left_003_main" id="count_left_004"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box count_left_004">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">疾病安全<span style="font-size:13px;font-weight:normal;margin-left:10px;color:#cd2a32;">(最近疑似<strong>50</strong>例)</span></span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                       		<div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">检查日期</span>
+                                    <span class="th">检查人数</span>
+                                    <span class="th">疑似疾病</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>235</td>
+                                            <td>2(高温)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-10</td>
+                                            <td>152</td>
+                                            <td>1(病感)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-09</td>
+                                            <td>235</td>
+                                            <td>2(高温)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-08</td>
+                                            <td>152</td>
+                                            <td>1(病感)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-07</td>
+                                            <td>235</td>
+                                            <td>2(高温)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-06</td>
+                                            <td>152</td>
+                                            <td>1(病感)</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+            	<div class="count_middle_001">
+                	<div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">近一个月预警事件</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">234</span>
+                                <span style="font-size:16px;margin-left:10px;">例</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box"><div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">已处理</span><span class="num">200</span></div></div>
+                            <div class="count_middle_001_num_box"><div class="count_middle_001_num_main count_middle_001_num_right"><span class="text">未处理</span><span class="num">34</span></div></div>
+                        </div>
+                        <div class="count_middle_001_left">
+                            <div class="count_middle_001_left_box" id="count_middle_001"></div>
+                            <div class="count_middle_001_left_box" id="count_middle_002"></div>
+                            <div class="count_middle_001_left_box" id="count_middle_003"></div>
+                        </div>
+                        <div class="count_middle_001_right">
+                            <div class="count_middle_001_right_box" id="count_middle_004"></div>
+                            <div class="count_middle_001_right_box" id="count_middle_005"></div>
+                            <div class="count_middle_001_right_box" id="count_middle_006"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_middle_002">
+                	<div class="count_middle_002_box">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">安全预警事件</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                        	<div class="count_table_detail count_table_detail_aqyj">
+                                <span class="tr">
+                                    <span class="th" style="width:20%">类别</span>
+                                    <span class="th" style="width:60%">内容</span>
+                                    <span class="th" style="width:20%">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td style="width:20%">来访</td>
+                                            <td style="width:60%">廖先生无身份证</td>
+                                            <td style="width:20%"><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>考勤</td>
+                                            <td>2名学生未到没请假</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>消防</td>
+                                            <td>E402烟雾报警</td>
+                                            <td><span class="text_red">未处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>体温</td>
+                                            <td>102班往小杨高温</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>体育</td>
+                                            <td>202班张小飞心率过高</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>环境</td>
+                                            <td>102教师甲醛报警</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>体质</td>
+                                            <td>202班张飞跃血压偏高</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>内宿</td>
+                                            <td>202班李白于15日晚未归</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>食堂</td>
+                                            <td>未上传餐具消毒视频</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box count_right_004">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">空气环境安全</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                        	<!--<div class="count_right_004_box">
+                                <span class="count_right_004_detail green"><span class="num">13.6</span><span class="text"><span class="bigText">PM2.5</span><span class="smallText">细颗粒</span></span></span>
+                            </div>
+                        	<div class="count_right_004_box">
+                                <span class="count_right_004_detail yellow"><span class="num">140</span><span class="text"><span class="bigText">PM10</span><span class="smallText">可吸入颗粒</span></span></span>
+                            </div>
+                        	<div class="count_right_004_box">
+                                <span class="count_right_004_detail red"><span class="num">50</span><span class="text"><span class="bigText">甲醛预警</span></span></span>
+                            </div>-->
+                            <div id="slideBox" class="slideBox">
+                                <div class="bd">
+                                    <ul>
+                                        <li>
+                                        	<span class="kqaqBox">
+                                            	<span class="kqaq_left kqaq_right_num_pm25">
+                                                	30
+                                                </span>
+                                                <span class="kqaq_right">
+                                                    <span class="kqaq_right_box">
+                                                    	<span class="kqaq_right_ico kqaq_right_ico_pm25"></span><!--根据数值算百分比-->
+                                                    	<span class="kqaq_right_main kqaq_right_first" style="width:20%;">0-100</span>
+                                                    	<span class="kqaq_right_main kqaq_right_second" style="width:20%;">100-200</span>
+                                                    	<span class="kqaq_right_main kqaq_right_third" style="width:60%;">200-500</span>
+                                                    </span>
+                                                	<span class="kqaq_right_text">PM2.5<span class="smallText">: 大气中空气动力学当量直径小于或等于2.5微米的颗粒物</span></span>
+                                                </span>
+                                            </span>
+                                            <script type="text/javascript">
+                                            	$(function(){
+													var kqaq_right_ico_pm25_num = parseInt($(".kqaq_right_num_pm25").html())/5;
+													if(kqaq_right_ico_pm25_num<20){
+														$(".kqaq_right_ico_pm25").css("background","url(images/count_index_ico_green.png) no-repeat");
+													}else if(kqaq_right_ico_pm25_num>20 && kqaq_right_ico_pm25_num<40){
+														$(".kqaq_right_ico_pm25").css("background","url(images/count_index_ico_orange.png) no-repeat");
+													}else{
+														$(".kqaq_right_ico_pm25").css("background","url(images/count_index_ico_red.png) no-repeat");
+													}
+													$(".kqaq_right_ico_pm25").css("left",kqaq_right_ico_pm25_num+"%");
+												});
+                                            </script>
+                                        </li>
+                                        <li>
+                                        	<span class="kqaqBox">
+                                            	<span class="kqaq_left kqaq_right_num_pm10">
+                                                	120
+                                                </span>
+                                                <span class="kqaq_right">
+                                                    <span class="kqaq_right_box">
+                                                    	<span class="kqaq_right_ico kqaq_right_ico_pm10"></span><!--根据数值算百分比-->
+                                                    	<span class="kqaq_right_main kqaq_right_first" style="width:20%;">0-100</span>
+                                                    	<span class="kqaq_right_main kqaq_right_second" style="width:20%;">10-200</span>
+                                                    	<span class="kqaq_right_main kqaq_right_third" style="width:60%;">200-500</span>
+                                                    </span>
+                                                	<span class="kqaq_right_text">PM10<span class="smallText">: 空气动力学直径小于或等于10微米的颗粒物</span></span>
+                                                </span>
+                                            </span>
+                                            <script type="text/javascript">
+                                            	$(function(){
+													var kqaq_right_ico_pm10_num = parseInt($(".kqaq_right_num_pm10").html())/5;
+													if(kqaq_right_ico_pm10_num<20){
+														$(".kqaq_right_ico_pm10").css("background","url(images/count_index_ico_green.png) no-repeat");
+													}else if(kqaq_right_ico_pm10_num>20 && kqaq_right_ico_pm10_num<40){
+														$(".kqaq_right_ico_pm10").css("background","url(images/count_index_ico_orange.png) no-repeat");
+													}else{
+														$(".kqaq_right_ico_pm10").css("background","url(images/count_index_ico_red.png) no-repeat");
+													}
+													$(".kqaq_right_ico_pm10").css("left",kqaq_right_ico_pm10_num+"%");
+												});
+                                            </script>
+                                        </li>
+                                        <li>
+                                        	<span class="kqaqBox">
+                                            	<span class="kqaq_left kqaq_right_num_jq">
+                                                	0.06
+                                                </span>
+                                                <span class="kqaq_right">
+                                                    <span class="kqaq_right_box">
+                                                    	<span class="kqaq_right_ico kqaq_right_ico_jq"></span><!--根据数值算百分比-->
+                                                    	<span class="kqaq_right_main kqaq_right_first" style="width:10%;">0-0.1</span>
+                                                    	<span class="kqaq_right_main kqaq_right_second" style="width:50%;">0.1-0.6</span>
+                                                    	<span class="kqaq_right_main kqaq_right_third" style="width:40%;">0.6以上</span>
+                                                    </span>
+                                                	<span class="kqaq_right_text">甲醛<span class="smallText">: 主要危害表现为对皮肤粘膜的刺激作用,甲醛在室内达到一定浓度时,人就有不适感</span></span>
+                                                </span>
+                                            </span>
+                                            <script type="text/javascript">
+                                            	$(function(){
+													var kqaq_right_ico_jq_num = Number($(".kqaq_right_num_jq").html())*100;
+													if(kqaq_right_ico_jq_num<10){
+														$(".kqaq_right_ico_jq").css("background","url(images/count_index_ico_green.png) no-repeat");
+													}else if(kqaq_right_ico_jq_num>10 && kqaq_right_ico_jq_num<50){
+														$(".kqaq_right_ico_jq").css("background","url(images/count_index_ico_orange.png) no-repeat");
+													}else{
+														$(".kqaq_right_ico_jq").css("background","url(images/count_index_ico_red.png) no-repeat");
+													}
+													$(".kqaq_right_ico_jq").css("left",kqaq_right_ico_jq_num+"%");
+												});
+                                            </script>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="hd">
+                                    <ul></ul>
+                                </div>
+                            </div>
+							<script type="text/javascript">
+                                setTimeout(function(){
+                                    TouchSlide({ 
+                                        slideCell:"#slideBox",
+                                        titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+                                        mainCell:".bd ul", 
+                                        effect:"leftLoop", 
+                                        autoPage:true,//自动分页
+                                        autoPlay:true, //自动播放
+                                        interTime:10000
+                                    });
+								},800);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box count_right_003">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">内宿安全</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                        	<div class="count_right_003_top">
+                            	<div class="count_common_textBox">
+                                	<span class="count_common_textMain">内宿秩序评分 : <span class="text_green">95分</span></span>
+                                </div>
+                            	<div class="count_common_textBox">
+                                	<span class="count_common_textMain">周校内来访 : 24人</span>
+                                </div>
+                            	<div class="count_common_textBox">
+                                	<span class="count_common_textMain">周校外来访 : 15分</span>
+                                </div>
+                            </div>
+                        	<div class="count_right_003_bottom" id="count_right_003"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box count_right_001">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">食堂餐饮安全</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail" id="count_right_001">
+                        	
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box count_right_002">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">体质健康安全</span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail" id="count_right_002">
+                        	
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box count_right_005">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                		<div class="count_common_title"><img src="images/svg_gif_001.svg" class="img_left" alt="" /><span class="text">体育运动安全<span style="font-size:13px;font-weight:normal;margin-left:10px;">(干预运动<strong>50</strong>人次)</span></span><img src="images/svg_gif_001.svg" class="img_right" alt="" /></div>
+                    	<div class="count_common_detail">
+                        	<div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">运动人数</span>
+                                    <span class="th">心率异常</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>235</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-10</td>
+                                            <td>152</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-09</td>
+                                            <td>235</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-08</td>
+                                            <td>152</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-07</td>
+                                            <td>235</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-06</td>
+                                            <td>152</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        	<!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartIndex.js"></script>
+</body>
+</html>

@@ -1,0 +1,711 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>考勤安全大数据分析平台 - 平安校园大数据分析平台</title>
+<script type="text/javascript" src="layui/layui.js"></script>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countAttendance.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".count_tab_001_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_001_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_001_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_002_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_002_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_002_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		thisresize();
+	});
+	$(window).resize(function(){
+		thisresize();
+	});
+	function thisresize(){
+		$(".count_middle_002_active_box .detail").each(function(index, element) {
+            $(this).css("line-height",($(this).height()-1)+"px");
+        });
+	}
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a current"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">异常考勤预警处理</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:35px;">
+                        	<div class="yckqText">
+                            	<span class="texts">今日考勤预警 : 20 起</span>
+                                <span class="texts">已处理 : <span class="text_green">15</span> 起</span>
+                                <span class="texts">未处理 : <span class="text_red">5</span> 起</span>
+                            </div>
+                        	<div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">学生</span>
+                                    <span class="th">处理状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>未识别</td>
+                                            <td>403 王小源</td>
+                                            <td>请病假</td>
+                                        </tr>
+                                        <tr>
+                                            <td>异常离校</td>
+                                            <td>101 李俊强</td>
+                                            <td>处理中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>未识别</td>
+                                            <td>201 谢丽玉</td>
+                                            <td>没带卡</td>
+                                        </tr>
+                                        <tr>
+                                            <td>异常离校</td>
+                                            <td>203 王爱玉</td>
+                                            <td>请病假</td>
+                                        </tr>
+                                        <tr>
+                                            <td>未识别</td>
+                                            <td>403 吴玉莹</td>
+                                            <td>处理中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>未识别</td>
+                                            <td>205 张天宇</td>
+                                            <td>处理中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>未识别</td>
+                                            <td>403 吴玉莹</td>
+                                            <td>处理中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>未识别</td>
+                                            <td>205 张天宇</td>
+                                            <td>处理中</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">考勤统计</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:35px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">应到总入总出</a>
+                                <a href="javascript:" class="count_tab_001_a">入校</a>
+                                <a href="javascript:" class="count_tab_001_a">离校</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_tab_001_detail current" id="count_01"></div>
+                                <div class="count_tab_001_detail" id="count_02"></div>
+                                <div class="count_tab_001_detail" id="count_03"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                	<div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">2019-01-28 班级考勤</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="count_table_detail count_table_detail_1">
+                                <span class="tr">
+                                    <span class="th">班级</span>
+                                    <span class="th">总人数</span>
+                                    <span class="th">到校</span>
+                                    <span class="th">未到或未识别</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr class="text_red">
+                                            <td>201</td>
+                                            <td>59</td>
+                                            <td>50</td>
+                                            <td>9</td>
+                                        </tr>
+                                        <tr class="text_red">
+                                            <td>401</td>
+                                            <td>54</td>
+                                            <td>50</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr class="text_red">
+                                            <td>201</td>
+                                            <td>54</td>
+                                            <td>52</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>101</td>
+                                            <td>52</td>
+                                            <td>52</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>203</td>
+                                            <td>58</td>
+                                            <td>58</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>501</td>
+                                            <td>58</td>
+                                            <td>58</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>601</td>
+                                            <td>50</td>
+                                            <td>50</td>
+                                            <td>0</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+            <div class="count_middle_selectData">
+                <div class="count_middle_selectDataBox">
+                    <div class="commonBoxTop"></div><div class="commonBoxBottom"></div>
+                    <span class="icon"></span>
+                	<input type="text" value="2019-01-28" id="date" readonly title="点击选择日期" />
+                </div>
+            </div>
+                <div class="count_middle_001">
+                    <div class="count_middle_001_position">
+                    	<span class="mainBox">
+                            <span class="text text_first" style="margin-bottom:10px;font-size:15px;">入校离校情况</span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">总入校</span>
+                            <span class="num"><span class="numBox">3</span><span class="numBox">3</span><span class="numBox">2</span><span class="numBox">9</span><span class="numBoxText">人</span></span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">总离校</span>
+                            <span class="num"><span class="numBox">3</span><span class="numBox">3</span><span class="numBox">2</span><span class="numBox">9</span><span class="numBoxText">人</span></span>
+                        </span>
+                    </div>
+                    <div class="count_middle_001_position_right">
+                    	<span class="mainBox">
+                            <span class="text text_first" style="margin-bottom:10px;font-size:15px;">考勤异常情况</span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">迟到</span>
+                                <span class="num">
+                                	<span class="numBox">1</span>
+                                	<span class="numBox">5</span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">请假</span>
+                                <span class="num">
+                                	<span class="numBox">0</span>
+                                	<span class="numBox">8</span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">异常</span>
+                                <span class="num">
+                                	<span class="numBox">2</span>
+                                	<span class="numBox">0</span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">其他</span>
+                                <span class="num">
+                                	<span class="numBox">0</span>
+                                	<span class="numBox">3</span>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">学生人数</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">3658</span>
+                                <span style="font-size:16px;margin-left:10px;">人</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_middle_002">
+                    <div class="count_middle_002_num">
+                        <div class="count_middle_002_num_box"><div class="count_middle_002_num_main count_middle_002_num_left"><span class="text">上午实到人数</span><span class="num">655</span></div></div>
+                        <div class="count_middle_002_num_box"><div class="count_middle_002_num_main count_middle_002_num_left"><span class="text">中午离校人数</span><span class="num">600</span></div></div>
+                        <div class="count_middle_002_num_box"><div class="count_middle_002_num_main count_middle_002_num_left"><span class="text">下午实到人数</span><span class="num">657</span></div></div>
+                        <div class="count_middle_002_num_box"><div class="count_middle_002_num_main count_middle_002_num_left"><span class="text">下午离校人数</span><span class="num">657</span></div></div>
+                    </div>
+                    <div class="count_middle_002_active" style="padding-right:100px;">
+                    	<div class="count_middle_002_active_box">
+                        	<div class="detail">
+                        		<div class="title">年级统计</div>
+                                <div class="mainBox">
+                                	<div class="txtScroll-top txtScroll-top1">
+                                        <div class="bd">
+                                            <ul class="infoList">
+                                                <li><span class="infoText text_green">初一级上午应到150人 , 实际入校150人</span></li>
+                                                <li><span class="infoText text_green">初二级上午应到130人 , 实际入校130人</span></li>
+                                                <li><span class="infoText text_red">初二级上午应到145人 , 实际入校143人</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                    	setTimeout(function(){
+											jQuery(".txtScroll-top1").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:1,interTime:3000});
+										},300);
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    	<div class="count_middle_002_active_box">
+                        	<div class="detail">
+                        		<div class="title">班级统计</div>
+                                <div class="mainBox">
+                                	<div class="txtScroll-top txtScroll-top2">
+                                        <div class="bd">
+                                            <ul class="infoList">
+                                                <li><span class="infoText text_green">101班上午应到50人 , 实际入校50人</span></li>
+                                                <li><span class="infoText text_red">102班上午应到49人 , 实际入校48人</span></li><!--异常添加 text_red-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                    	setTimeout(function(){
+											jQuery(".txtScroll-top2").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:1,interTime:3500});
+										},300);
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sskqBox">
+                    <div class="picMarquee-top">
+                        <div class="bd">
+                            <ul class="picList">
+                                <li>
+                                    <div class="pic"><img src="images/img_user_007.jpg" /></div>
+                                    <div class="title">601林博</div>
+                                </li>
+                                <li>
+                                    <div class="pic"><img src="images/img_user_001.jpg" /></div>
+                                    <div class="title">101陈坚</div>
+                                </li>
+                                <li>
+                                    <div class="pic"><img src="images/img_user_002.jpg" /></div>
+                                    <div class="title">201谢灿杰</div>
+                                </li>
+                                <li>
+                                    <div class="pic"><img src="images/img_user_004.jpg" /></div>
+                                    <div class="title">301蔡炜浩</div>
+                                </li>
+                                <li>
+                                    <div class="pic"><img src="images/img_user_005.jpg" /></div>
+                                    <div class="title">301刘梓帆</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                    jQuery(".picMarquee-top").slide({mainCell:".bd ul",autoPlay:true,effect:"topMarquee",vis:5,interTime:50});
+                    </script>
+                </div>
+                <div class="count_common_box" style="padding-right:110px;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时考勤</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_1">
+                                <span class="tr">
+                                    <span class="th">班级学生</span>
+                                    <span class="th">识别</span>
+                                    <span class="th">状态</span>
+                                    <span class="th">时间</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>102王小源</td>
+                                            <td>人脸</td>
+                                            <td>入校</td>
+                                            <td class="text_red">01-28 14:30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>201徐小峥</td>
+                                            <td>人脸</td>
+                                            <td>入校</td>
+                                            <td class="text_red">01-28 14:20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>401王小强</td>
+                                            <td>智能卡</td>
+                                            <td>入校</td>
+                                            <td class="text_red">01-28 14:10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>201张小飞</td>
+                                            <td>智能卡</td>
+                                            <td>入校</td>
+                                            <td>01-28 14:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>301王小二</td>
+                                            <td>智能卡</td>
+                                            <td>入校</td>
+                                            <td>01-28 13:59</td>
+                                        </tr>
+                                        <tr>
+                                            <td>201刘晓军</td>
+                                            <td>人脸</td>
+                                            <td>入校</td>
+                                            <td>01-28 13:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>601谢晓宇</td>
+                                            <td>人脸</td>
+                                            <td>入校</td>
+                                            <td>01-28 13:40</td>
+                                        </tr>
+                                        <tr>
+                                            <td>201倪大匡</td>
+                                            <td>智能卡</td>
+                                            <td>入校</td>
+                                            <td>01-28 13:30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>101周小发</td>
+                                            <td>智能卡</td>
+                                            <td>入校</td>
+                                            <td>01-28 12:40</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">学生迟到分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current">迟到</a>
+                                <a href="javascript:" class="count_tab_002_a">上午迟到</a>
+                                <a href="javascript:" class="count_tab_002_a">下午迟到</a>
+                                <a href="javascript:" class="count_tab_002_a">经常迟到</a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current" id="count_05"></div>
+                                <div class="count_tab_002_detail" id="count_06"></div>
+                                <div class="count_tab_002_detail" id="count_07"></div>
+                                <div class="count_tab_002_detail">
+                                	<div class="count_table_detail">
+                                        <span class="tr">
+                                            <span class="th">学生</span>
+                                            <span class="th">本月累计</span>
+                                            <span class="th">本学期累计</span>
+                                        </span>
+                                        <div class="count_table_detail_main">
+                                            <table>
+                                                <tr class="text_red">
+                                                    <td>201 张益达</td>
+                                                    <td>56</td>
+                                                    <td>235</td>
+                                                </tr>
+                                                <tr class="text_red">
+                                                    <td>301 谢凯龙</td>
+                                                    <td>53</td>
+                                                    <td>215</td>
+                                                </tr>
+                                                <tr class="text_red">
+                                                    <td>203 吴水宇</td>
+                                                    <td>50</td>
+                                                    <td>205</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>305 张海丽</td>
+                                                    <td>40</td>
+                                                    <td>165</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>205 钱多多</td>
+                                                    <td>40</td>
+                                                    <td>155</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>405 李玉</td>
+                                                    <td>30</td>
+                                                    <td>125</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">年级全勤率分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                        	<div class="choose_date">
+                            	<div class="choose_date_box">
+                                	<a href="javascript:" class="btn_pre"></a>
+                                    <span class="input"><input type="text" value="2019-01-28" id="date2" readonly /><span class="input_date"></span></span>
+                                    <a href="javascript:" class="btn_next"></a>
+                                </div>
+                            </div>
+                            <div class="nqqqfx_left" id="count_08"></div>
+                            <div class="nqqqfx_right">
+                            	<div class="count_table_detail count_table_detail_1" style="padding-left:5px;">
+                                    <span class="tr" style="padding-left:5px;">
+                                        <span class="th">班级</span>
+                                        <span class="th">总数</span>
+                                        <span class="th">总入</span>
+                                        <span class="th">总出</span>
+                                    </span>
+                                    <div class="count_table_detail_main">
+                                        <table>
+                                            <tr>
+                                                <td>一年级</td>
+                                                <td>59</td>
+                                                <td>59</td>
+                                                <td>59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>二年级</td>
+                                                <td>53</td>
+                                                <td>53</td>
+                                                <td>53</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三年级</td>
+                                                <td>56</td>
+                                                <td>56</td>
+                                                <td>56</td>
+                                            </tr>
+                                            <tr>
+                                                <td>四年级</td>
+                                                <td>52</td>
+                                                <td>52</td>
+                                                <td>52</td>
+                                            </tr>
+                                            <tr>
+                                                <td>五年级</td>
+                                                <td>59</td>
+                                                <td>59</td>
+                                                <td>59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>六年级</td>
+                                                <td>59</td>
+                                                <td>59</td>
+                                                <td>59</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">班级全勤率排行榜</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">排名</span>
+                                    <span class="th">班级</span>
+                                    <span class="th">全勤率</span>
+                                </span>
+                                <div class="count_table_detail_main baqq">
+                                    <table>
+                                        <tr>
+                                            <td><img src="images/ico_first.png" class="img_qq" />第1名</td>
+                                            <td>201</td>
+                                            <td>100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="images/ico_second.png" class="img_qq" />第2名</td>
+                                            <td>301</td>
+                                            <td>99%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="images/ico_third.png" class="img_qq" />第3名</td>
+                                            <td>101</td>
+                                            <td>98%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第4名</td>
+                                            <td>501</td>
+                                            <td>96%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第5名</td>
+                                            <td>601</td>
+                                            <td>94%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第5名</td>
+                                            <td>203</td>
+                                            <td>94%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>第7名</td>
+                                            <td>403</td>
+                                            <td>92%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartAttdance.js"></script>
+<script type="text/javascript">
+	layui.use('laydate', function(){
+		var laydate = layui.laydate;
+		//日期时间选择器
+		laydate.render({
+			elem: '#date'
+			,type: 'date'
+		});
+		//日期时间选择器
+		laydate.render({
+			elem: '#date2'
+			,type: 'date'
+		});
+		  
+	});
+</script>
+</body>
+</html>

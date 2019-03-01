@@ -1,0 +1,589 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>内宿安全大数据分析平台 - 平安校园大数据分析平台</title>
+<script type="text/javascript" src="layui/layui.js"></script>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countDormitory.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".count_tab_001_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_001_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_001_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_002_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_002_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_002_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".ssaqztBox .text").each(function(index, element) {
+            $(this).css("line-height",$(this).height()+"px");
+        });
+		$(".ssaqztBox .box").each(function(index, element) {
+            if(parseInt($(this).children(".boxMain").attr("name"))>=90){
+				$(this).addClass("bg_ssaq_green");
+			}else if(parseInt($(this).children(".boxMain").attr("name"))>=60&&parseInt($(this).children(".boxMain").attr("name"))<90){
+				$(this).addClass("bg_ssaq_orange");
+			}else if(parseInt($(this).children(".boxMain").attr("name"))<60){
+				$(this).addClass("bg_ssaq_red");
+			}
+        });
+	});
+	$(window).resize(function(){
+		$(".ssaqztBox .text").each(function(index, element) {
+            $(this).css("line-height",$(this).height()+"px");
+        });
+	});
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a current"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box" style="height:26.3%;width:50%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">宿舍安全状态</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<span class="ssaqztBox">
+                            	<span class="text">消全</span>
+                                <span class="boxs"><span class="box"><span class="boxMain" style="width:95%;" name="95">95分</span></span></span>
+                            </span>
+                        	<span class="ssaqztBox">
+                            	<span class="text">用电</span>
+                                <span class="boxs"><span class="box"><span class="boxMain" style="width:55%;" name="55">55分</span></span></span>
+                            </span>
+                        	<span class="ssaqztBox">
+                            	<span class="text">访客</span>
+                                <span class="boxs"><span class="box"><span class="boxMain" style="width:75%;" name="75">75分</span></span></span>
+                            </span>
+                        	<span class="ssaqztBox">
+                            	<span class="text">卫生</span>
+                                <span class="boxs"><span class="box"><span class="boxMain" style="width:100%;" name="100">100分</span></span></span>
+                            </span>
+                        	<span class="ssaqztBox">
+                            	<span class="text">考勤</span>
+                                <span class="boxs"><span class="box"><span class="boxMain" style="width:90%;" name="90">90分</span></span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:26.3%;width:50%;">
+                    <div class="count_left_num">
+                        <div class="count_left_num_box">
+                            <div class="count_left_num_main count_left_num_left"><span class="text">宿舍楼 (栋)</span><span class="num">2</span></div>
+                        </div>
+                        <div class="count_left_num_box">
+                            <div class="count_left_num_main count_left_num_left"><span class="text">宿舍房间 (间)</span><span class="num">50</span></div>
+                        </div>
+                        <div class="count_left_num_box">
+                            <div class="count_left_num_main count_left_num_left"><span class="text">消防设备</span><span class="num">232</span></div>
+                        </div>
+                        <div class="count_left_num_box">
+                            <div class="count_left_num_main count_left_num_left"><span class="text">SOS求救器</span><span class="num">50</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:40.3%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">宿舍来访统计</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">总来访</a>
+                                <a href="javascript:" class="count_tab_001_a">校内来访</a>
+                                <a href="javascript:" class="count_tab_001_a">校外来访</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_tab_001_detail current" id="count_02"></div>
+                                <div class="count_tab_001_detail" id="count_03"></div>
+                                <div class="count_tab_001_detail" id="count_04"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">来访人员轨迹</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">来访</span>
+                                    <span class="th">位置</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>403 张晓明</td>
+                                            <td>B栋宿舍</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>201 吴晓飞</td>
+                                            <td>A栋宿舍</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>校外001</td>
+                                            <td>C栋宿舍201</td>
+                                            <td><span class="text_red">异常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>101 吴培宇</td>
+                                            <td>A栋宿舍201</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>402 甄姬</td>
+                                            <td>B栋宿舍</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>校外002/td>
+                                            <td>C栋宿舍</td>
+                                            <td><span class="text_red">异常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>503 王晓燕</td>
+                                            <td>B栋宿舍</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>402 甄姬</td>
+                                            <td>C栋宿舍</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>校外001</td>
+                                            <td>C栋宿舍</td>
+                                            <td><span class="text_red">异常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>403 张晓明</td>
+                                            <td>C栋宿舍</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>402 甄姬</td>
+                                            <td>C栋宿舍</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_middle_001">
+                    <div class="count_middle_001_position">
+                    	<span class="mainBox">
+                            <span class="text" style="margin:0;font-size:16px;">上一次巡检 : 2019-01-23</span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">巡检发现问题</span>
+                            <span class="num"><span class="numBox">8</span><span class="numBox">3</span><span class="numBoxText">项</span></span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">已完成整改</span>
+                            <span class="num"><span class="numBox">8</span><span class="numBox">3</span><span class="numBoxText">项</span></span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">历史未整改</span>
+                            <span class="num"><span class="numBox">0</span><span class="numBoxText">项</span></span>
+                        </span>
+                    </div>
+                    <div class="count_middle_001_position_right">
+                    	<span class="mainBox">
+                            <span class="text" style="margin-bottom:10px;font-size:16px;">01-24 学生夜晚归宿情况</span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">应归</span>
+                                <span class="num">
+                                	<span class="numBox">4</span>
+                                	<span class="numBox">6</span>
+                                	<span class="numBox">0</span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">实归</span>
+                                <span class="num">
+                                	<span class="numBox">4</span>
+                                	<span class="numBox">5</span>
+                                	<span class="numBox">6</span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">请假</span>
+                                <span class="num">
+                                	<span class="numBox">4</span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">
+                            	<span class="texts">晚归</span>
+                                <span class="num">
+                                	<span class="numBox">6</span>
+                                	<span class="numBox">0</span>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">本学期内宿学生</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">568</span>
+                                <span style="font-size:16px;margin-left:10px;">人</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">宿舍安全预警事件</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">事件</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-23 14:58</td>
+                                            <td>未认证陌生人来访</td>
+                                            <td><span class="text_green">已信任</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 13:58</td>
+                                            <td>未认证陌生人来访</td>
+                                            <td><span class="text_red">未处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 12:58</td>
+                                            <td>403 小明未归宿</td>
+                                            <td><span class="text_green">已补请假</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 10:58</td>
+                                            <td>201 SOS求救</td>
+                                            <td><span class="text_green">测试</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 09:58</td>
+                                            <td>502 夜晚出宿舍</td>
+                                            <td><span class="text_green">测试</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 13:58</td>
+                                            <td>未认证陌生人来访</td>
+                                            <td><span class="text_red">未处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 12:58</td>
+                                            <td>403 小明未归宿</td>
+                                            <td><span class="text_green">已补请假</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 10:58</td>
+                                            <td>201 SOS求救</td>
+                                            <td><span class="text_green">测试</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-23 09:58</td>
+                                            <td>502 夜晚出宿舍</td>
+                                            <td><span class="text_green">测试</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">预警事件统计</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_01"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box" style="height:26.3%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">学生夜晚归宿情况</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_2">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">应归</span>
+                                    <span class="th">实归</span>
+                                    <span class="th">请假</span>
+                                    <span class="th">晚归</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-23</td>
+                                            <td>460</td>
+                                            <td>456</td>
+                                            <td>4</td>
+                                            <td>60</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-22</td>
+                                            <td>460</td>
+                                            <td>459</td>
+                                            <td>1</td>
+                                            <td>52</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-21</td>
+                                            <td>460</td>
+                                            <td>456</td>
+                                            <td>4</td>
+                                            <td>60</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-20</td>
+                                            <td>460</td>
+                                            <td>459</td>
+                                            <td>1</td>
+                                            <td>52</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-19</td>
+                                            <td>460</td>
+                                            <td>456</td>
+                                            <td>4</td>
+                                            <td>60</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-18</td>
+                                            <td>460</td>
+                                            <td>459</td>
+                                            <td>1</td>
+                                            <td>52</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-17</td>
+                                            <td>460</td>
+                                            <td>459</td>
+                                            <td>1</td>
+                                            <td>52</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-16</td>
+                                            <td>460</td>
+                                            <td>459</td>
+                                            <td>1</td>
+                                            <td>52</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:40.3%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">学生夜晚归宿异常分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current">总异常</a>
+                                <a href="javascript:" class="count_tab_002_a">晚归</a>
+                                <a href="javascript:" class="count_tab_002_a">晚出</a>
+                                <a href="javascript:" class="count_tab_002_a">未归</a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current" id="count_05"></div>
+                                <div class="count_tab_002_detail" id="count_06"></div>
+                                <div class="count_tab_002_detail" id="count_07"></div>
+                                <div class="count_tab_002_detail" id="count_08"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时学生出入</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_1">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">学生</span>
+                                    <span class="th">宿舍</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>403 张小飞</td>
+                                            <td>A403</td>
+                                            <td>晚回宿</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:52</td>
+                                            <td>201 万晓宇</td>
+                                            <td>A201</td>
+                                            <td>晚回宿</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 10:59</td>
+                                            <td>303 吴培义</td>
+                                            <td>A403</td>
+                                            <td>晚回宿</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 09:45</td>
+                                            <td>601 张飞跃</td>
+                                            <td>A201</td>
+                                            <td>回宿</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 09:42</td>
+                                            <td>205 梁雨</td>
+                                            <td>A403</td>
+                                            <td>回宿</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 09:30</td>
+                                            <td>101 刘小虎</td>
+                                            <td>A201</td>
+                                            <td>回宿</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 08:25</td>
+                                            <td>403 张小飞</td>
+                                            <td>A403</td>
+                                            <td>回宿</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartDormitory.js"></script>
+</body>
+</html>

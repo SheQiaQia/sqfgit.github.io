@@ -1,0 +1,756 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学生运动健康大数据分析平台 - 平安校园大数据分析平台</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countSport.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".count_tab_001_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_001_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_001_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_002_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_002_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_002_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_middle_001_num_box .text").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+		$(".count_middle_001_num_box .num").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+	});
+	$(window).resize(function(){
+		$(".count_middle_001_num_box .text").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+		$(".count_middle_001_num_box .num").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+	});
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a current"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box">  
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">最新体育健康课情况</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="zxtyjk">
+                                <div id="slideBox" class="slideBox">
+                                    <div class="bd">
+                                        <ul>
+                                            <li>
+                                                <span class="span">
+                                                    <span class="spans size">402班</span>
+                                                    <span class="spans size">02-01 第3、4节</span>
+                                                    <span class="spans size">体育老师 : 张老师</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">参与上课 : 55人/57人</span>
+                                                    <span class="spans">其他 : 1人请假、1人申请休息</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">任务 : </span>
+                                                    <span class="spans">步数 : 5000步 ; 心率峰值 : 180以上/5次 ; 跳绳 : 120圈 ;</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">任务完成情况 : </span>
+                                                    <span class="spans"><span class="text_green">优秀</span></span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">任务完成数据 : </span>
+                                                    <span class="spans">步数 : 5220步 ; 心率峰值 : 180以上/6.5次 ; 跳绳 : 152圈</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">运动量评价 : </span>
+                                                    <span class="spans"><span class="text_green">优秀</span></span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">剧烈运动 : </span>
+                                                    <span class="spans">平均30分钟/人</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">休息时间 : </span>
+                                                    <span class="spans">平均20分钟/人</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">心率过预警 : </span>
+                                                    <span class="spans">50次</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">心率恢复率 : </span>
+                                                    <span class="spans"><span class="text_red">一般</span></span>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="span">
+                                                    <span class="spans size">403班</span>
+                                                    <span class="spans size">02-02 第1、2节</span>
+                                                    <span class="spans size">体育老师 : 秦老师</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">参与上课 : 55人/57人</span>
+                                                    <span class="spans">其他 : 1人请假、1人申请休息</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">任务 : </span>
+                                                    <span class="spans">步数 : 5000步 ; 心率峰值 : 180以上/5次 ; 跳绳 : 120圈 ;</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">任务完成情况 : </span>
+                                                    <span class="spans"><span class="text_green">优秀</span></span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">任务完成数据 : </span>
+                                                    <span class="spans">步数 : 5220步 ; 心率峰值 : 180以上/6.5次 ; 跳绳 : 152圈</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">运动量评价 : </span>
+                                                    <span class="spans"><span class="text_green">优秀</span></span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">剧烈运动 : </span>
+                                                    <span class="spans">平均30分钟/人</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">休息时间 : </span>
+                                                    <span class="spans">平均20分钟/人</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">心率过预警 : </span>
+                                                    <span class="spans">50次</span>
+                                                </span>
+                                                <span class="span">
+                                                    <span class="spans">心率恢复率 : </span>
+                                                    <span class="spans"><span class="text_red">一般</span></span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="hd">
+                                        <ul>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    setTimeout(function(){
+                                        TouchSlide({ 
+                                            slideCell:"#slideBox",
+                                            titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+                                            mainCell:".bd ul", 
+                                            effect:"leftLoop", 
+                                            autoPage:true,//自动分页
+                                            autoPlay:true, //自动播放
+                                            interTime:10000
+                                        });
+                                        /*$(".slideBox .bd ul li").height($(".count_tab_002_main").height()-50);*/
+                                    },800);
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体育课运动量分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">步数</a>
+                                <a href="javascript:" class="count_tab_001_a">剧烈运动</a>
+                                <a href="javascript:" class="count_tab_001_a">休息时间</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_tab_001_detail current" id="count_01"></div>
+                                <div class="count_tab_001_detail" id="count_01_02"></div>
+                                <div class="count_tab_001_detail" id="count_01_03"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时体育任务完成情况</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_5">
+                                <span class="tr">
+                                    <span class="th">课时</span>
+                                    <span class="th">学生</span>
+                                    <span class="th">任务</span>
+                                    <span class="th">完成情况</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>203班 张晓峰</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_red">未完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>303班 谢云云</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_green">已完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>205班 刘玉婉</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_red">未完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>501班 张爱英</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_red">未完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>203班 张晓峰</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_red">未完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>303班 谢云云</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_red">未完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>205班 刘玉婉</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_red">未完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>501班 张爱英</td>
+                                            <td>400步/3次</td>
+                                            <td class="text_red">未完成</td>
+                                            <td>上课中</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_middle_001">
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">智能体育课</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">25</span>
+                                <span style="font-size:16px;margin-left:10px;">节</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                    <span class="icon"></span><span class="num">95%</span><span class="text">任务达标率</span>
+                                </div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                    <span class="icon"></span><span class="num">45%</span><span class="text">优秀率</span>
+                                </div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                    <span class="icon"></span><span class="num text_green"><span class="fa fa-long-arrow-up" style="font-size:20px;margin-right:8px;vertical-align:middle;"></span>20%</span><span></span><span class="text">学生运动积极性提高率</span>
+                                    <!--下降样式
+                                	<span class="icon"></span><span class="num text_red"><span class="fa fa-long-arrow-down" style="font-size:20px;margin-right:8px;vertical-align:middle;"></span>20%</span><span></span><span class="text">学生运动积极性提高率</span>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="width:40%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">心率恢复率</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_02"></div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="width:60%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体育运动安全预警</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_4">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">学生</span>
+                                    <span class="th">情况</span>
+                                    <span class="th">建议</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>203班 张晓峰</td>
+                                            <td>剧烈运动超过5分钟</td>
+                                            <td>稍作消息</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>303班 谢云云</td>
+                                            <td>心率值过高</td>
+                                            <td>减少运动量</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>205班 刘玉婉</td>
+                                            <td>心率恢复率偏低</td>
+                                            <td>多运动</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>501班 张爱英</td>
+                                            <td>剧烈运动超过5分钟</td>
+                                            <td>稍作消息</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>203班 张晓峰</td>
+                                            <td>心率值过高</td>
+                                            <td>减少运动量</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>303班 谢云云</td>
+                                            <td>心率恢复率偏低</td>
+                                            <td>建议多运动</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>205班 刘玉婉</td>
+                                            <td>心率恢复率偏低</td>
+                                            <td>多运动</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01 1-2节</td>
+                                            <td>501班 张爱英</td>
+                                            <td>剧烈运动超过5分钟</td>
+                                            <td>稍作消息</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">智能体育运动课</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_7">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">课时</span>
+                                    <span class="th">班级</span>
+                                    <span class="th">任务</span>
+                                    <span class="th">优秀率</span>
+                                    <span class="th">及格率</span>
+                                    <span class="th">不及格率</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>3-4节</td>
+                                            <td>203班</td>
+                                            <td>4000步/5次/120圈</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>7-8节</td>
+                                            <td>303班</td>
+                                            <td>5000步/5次/120圈</td>
+                                            <td>10%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>3-4节</td>
+                                            <td>203班</td>
+                                            <td>4000步/5次/120圈</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>7-8节</td>
+                                            <td>303班</td>
+                                            <td>5000步/5次/120圈</td>
+                                            <td>10%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>3-4节</td>
+                                            <td>203班</td>
+                                            <td>4000步/5次/120圈</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>7-8节</td>
+                                            <td>303班</td>
+                                            <td>5000步/5次/120圈</td>
+                                            <td>10%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>3-4节</td>
+                                            <td>203班</td>
+                                            <td>4000步/5次/120圈</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>7-8节</td>
+                                            <td>303班</td>
+                                            <td>5000步/5次/120圈</td>
+                                            <td>10%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>3-4节</td>
+                                            <td>203班</td>
+                                            <td>4000步/5次/120圈</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-01</td>
+                                            <td>7-8节</td>
+                                            <td>303班</td>
+                                            <td>5000步/5次/120圈</td>
+                                            <td>10%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体育课积极份子</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_5">
+                                <span class="tr">
+                                    <span class="th">学生</span>
+                                    <span class="th">平均步数</span>
+                                    <span class="th">平均运动时间</span>
+                                    <span class="th">剧烈运动时间</span>
+                                    <span class="th">任务达标率</span>
+                                </span>
+                                <div class="count_table_detail_main youxiu">
+                                    <table>
+                                        <tr>
+                                            <td>203班 张晓峰</td>
+                                            <td>8236步</td>
+                                            <td>40分钟</td>
+                                            <td>15分钟</td>
+                                            <td>100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>303班 谢云云</td>
+                                            <td>7236步</td>
+                                            <td>38分钟</td>
+                                            <td>15分钟</td>
+                                            <td>98%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>205班 刘玉婉</td>
+                                            <td>7136步</td>
+                                            <td>35分钟</td>
+                                            <td>15分钟</td>
+                                            <td>95%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>501班 张爱英</td>
+                                            <td>5365步</td>
+                                            <td>30分钟</td>
+                                            <td>15分钟</td>
+                                            <td>90%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>203班 张晓峰</td>
+                                            <td>8236步</td>
+                                            <td>40分钟</td>
+                                            <td>15分钟</td>
+                                            <td>100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>303班 谢云云</td>
+                                            <td>7236步</td>
+                                            <td>38分钟</td>
+                                            <td>15分钟</td>
+                                            <td>98%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>205班 刘玉婉</td>
+                                            <td>7136步</td>
+                                            <td>35分钟</td>
+                                            <td>15分钟</td>
+                                            <td>95%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>501班 张爱英</td>
+                                            <td>5365步</td>
+                                            <td>30分钟</td>
+                                            <td>15分钟</td>
+                                            <td>90%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体育课任务达标率分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current">总任务</a>
+                                <a href="javascript:" class="count_tab_002_a">步数</a>
+                                <a href="javascript:" class="count_tab_002_a">心率</a>
+                                <a href="javascript:" class="count_tab_002_a">跳绳</a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current" id="count_03_01"></div>
+                                <div class="count_tab_002_detail" id="count_03_02"></div>
+                                <div class="count_tab_002_detail" id="count_03_03"></div>
+                                <div class="count_tab_002_detail" id="count_03_04"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">班体育课运动量排行榜</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_tab_001_main">
+                                <div class="count_table_detail count_table_detail_5">
+                                    <span class="tr">
+                                        <span class="th">班级</span>
+                                        <span class="th">人数</span>
+                                        <span class="th">运动时间</span>
+                                        <span class="th">剧烈运动时间</span>
+                                        <span class="th">任务达标率</span>
+                                    </span>
+                                    <div class="count_table_detail_main youxiu">
+                                        <table>
+                                            <tr>
+                                                <td>201</td>
+                                                <td>50</td>
+                                                <td>330分钟</td>
+                                                <td>25分钟</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>301</td>
+                                                <td>52</td>
+                                                <td>320分钟</td>
+                                                <td>30分钟</td>
+                                                <td>95%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>101</td>
+                                                <td>52</td>
+                                                <td>300分钟</td>
+                                                <td>43分钟</td>
+                                                <td>90%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>501</td>
+                                                <td>52</td>
+                                                <td>280分钟</td>
+                                                <td>28分钟</td>
+                                                <td>90%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>602</td>
+                                                <td>52</td>
+                                                <td>270分钟</td>
+                                                <td>32分钟</td>
+                                                <td>90%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>302</td>
+                                                <td>52</td>
+                                                <td>265分钟</td>
+                                                <td>26分钟</td>
+                                                <td>90%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>403</td>
+                                                <td>52</td>
+                                                <td>245分钟</td>
+                                                <td>27分钟</td>
+                                                <td>90%</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartSport.js"></script>
+</body>
+</html>

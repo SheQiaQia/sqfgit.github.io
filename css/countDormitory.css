@@ -1,0 +1,477 @@
+﻿/*
+******************************
+********** author:@zhou小白猪
+******************************
+*/
+
+.count_main{
+	padding-bottom:0;
+}
+.count_left,.count_right{
+	width:30%;
+	height:100%;
+	float:left;
+}
+.count_middle{
+	width:40%;
+	height:100%;
+	float:left;
+}
+.count_common_box{
+	height:33.3%;
+}
+
+/* count_middle_001 */
+.count_middle_001{
+	width:100%;
+	height:33.3%;
+	float:left;
+	position:relative;
+	padding:0 10px;
+	padding-bottom:20px;
+}
+.count_middle_001_box{
+	width:100%;
+	height:100%;
+	float:left;
+	position:relative;
+}
+.count_middle_001_num{
+	width:25%;
+	height:100%;
+	color:#fff;
+	position:absolute;
+	right:0;
+	top:0;
+	padding-top:10%;
+}
+.count_middle_001_num_box{
+	width:100%;
+	height:40%;
+	padding:5px 0;
+	text-align:center;
+	position:relative;
+	display:table;
+}
+.count_middle_001_num_box .count_middle_001_num_main{
+	width:100%;
+	height:100%;
+	border-radius:3px;
+	position:relative;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+.count_middle_001_num_left{
+	border:1px solid rgba(4,203,245,.8);
+	background:rgba(4,203,245,.15);
+	color:#04cbf5;
+}
+.count_middle_001_num_right{
+	border:1px solid rgba(230,76,76,.8);
+	background:rgba(230,76,76,.15);
+	color:#e64c4c;
+}
+.count_middle_001_num_box .text{
+	width:100%;
+	height:auto;
+	font-size:15px;
+	position:relative;
+}
+.count_middle_001_num_box .num{
+	width:100%;
+	height:auto;
+	float:left;
+	font-size:30px;
+	font-weight:bold;
+	position:relative;
+}
+.count_middle_001_text{
+	width:100%;
+	height:90%;
+	float:left;
+	background:url(../images/bg_003.png) no-repeat center;
+	background-size:auto 100%;
+	color:#fff;
+	display:table;
+	margin-top:3.5%;
+}
+.count_middle_001_text .text{
+	width:100%;
+	height:100%;
+	line-height:45px;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+}
+.count_middle_001_left{
+	width:23%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.count_middle_001_left_box{
+	width:100%;
+	height:33.3%;
+	float:left;
+	margin-top:-8px;
+}
+.count_middle_001_right{
+	width:23%;
+	height:100%;
+	position:absolute;
+	top:0;
+	right:0;
+}
+.count_middle_001_right_box{
+	width:100%;
+	height:33.3%;
+	float:left;
+	margin-top:-8px;
+}
+.count_middle_001_position{
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+.count_middle_001_position .mainBox{
+	width:100%;
+	height:auto;
+	float:left;
+}
+.count_middle_001_position .mainBox .text{
+	width:100%;
+	height:auto;
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+	color:#46d9f8;
+	margin-bottom:8px;
+	margin-top:10px;
+}
+.count_middle_001_position .mainBox .num{
+	width:100%;
+	height:auto;
+	float:left;
+}
+.count_middle_001_position .mainBox .num .numBox{
+	width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+    background: rgba(0,200,255,.15);
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+.count_middle_001_position .mainBox .num .numBoxText{
+	font-size:14px;
+	color:#fff;
+	float:left;
+	margin-top:16px;
+	margin-left:5px;
+}
+
+.count_middle_001_position_right{
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+.count_middle_001_position_right .mainBox{
+	width:100%;
+	height:auto;
+	float:left;
+}
+.count_middle_001_position_right .mainBox .text{
+	float:right;
+	font-size:14px;
+	color:#46d9f8;
+	margin-top:10px;
+	text-align:right;
+	font-weight:bold;
+}
+.count_middle_001_position_right .mainBox .text .texts{
+	float:left;
+	margin-top:17px;
+	margin-right:10px;
+}
+.count_middle_001_position_right .mainBox .num{
+	float:left;
+}
+.count_middle_001_position_right .mainBox .num .numBox{
+	width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+    background: rgba(0,200,255,.15);
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+.count_middle_001_position_right .mainBox .num .numBoxText{
+	font-size:14px;
+	color:#fff;
+	float:left;
+	margin-top:16px;
+	margin-left:5px;
+}
+
+/* 列表 1 */
+.count_table_detail_1 .tr .th{
+	width:25%;
+}
+.count_table_detail_1 table tr td{
+	width:25%;
+}
+
+/* 列表 2 */
+.count_table_detail_2 .tr .th{
+	width:20%;
+}
+.count_table_detail_2 table tr td{
+	width:20%;
+}
+
+
+/* count_tab_001 */
+.count_tab_001{
+	width:100%;
+	height:40px;
+	position:absolute;
+	top:0;
+	left:0;
+	padding:0 20%;
+}
+.count_tab_001 a{
+	width:33.3%;
+	height:30px;
+	line-height:28px;
+	text-align:center;
+	float:left;
+	border:1px solid rgba(4,203,245,.6);
+	background:rgba(4,203,245,.1);
+	color:#fff;
+}
+.count_tab_001 a:hover{
+	color:#fff;
+}
+.count_tab_001 a:first-child{
+	border-right:0;
+}
+.count_tab_001 a:nth-child(2){
+	border-left:0;
+	border-right:0;
+}
+.count_tab_001 a:last-child{
+	border-left:0;
+}
+.count_tab_001 a:hover{
+	text-decoration:none;
+}
+.count_tab_001 a.current{
+	background:rgba(4,203,245,.6);
+	font-weight:bold;
+}
+.count_tab_001_main{
+	width:100%;
+	height:100%;
+	float:left;
+}
+.count_tab_001_detail{
+	width:100%;
+	height:100%;
+	float:left;
+	display:none;
+}
+.count_tab_001_detail.current{
+	display:block;
+}
+
+
+/* count_tab_002 */
+.count_tab_002{
+	width:100%;
+	height:40px;
+	position:absolute;
+	top:0;
+	left:0;
+	padding:0 20%;
+}
+.count_tab_002 a{
+	width:25%;
+	height:30px;
+	line-height:28px;
+	text-align:center;
+	float:left;
+	border-top:1px solid rgba(4,203,245,.6);
+	border-bottom:1px solid rgba(4,203,245,.6);
+	background:rgba(4,203,245,.1);
+	color:#fff;
+}
+.count_tab_002 a:hover{
+	color:#fff;
+}
+.count_tab_002 a:first-child{
+	border-left:1px solid rgba(4,203,245,.6);
+}
+.count_tab_002 a:last-child{
+	border-right:1px solid rgba(4,203,245,.6);
+}
+.count_tab_002 a:hover{
+	text-decoration:none;
+}
+.count_tab_002 a.current{
+	background:rgba(4,203,245,.6);
+	font-weight:bold;
+}
+.count_tab_002_main{
+	width:100%;
+	height:100%;
+	float:left;
+}
+.count_tab_002_detail{
+	width:100%;
+	height:100%;
+	float:left;
+	display:none;
+}
+.count_tab_002_detail.current{
+	display:block;
+}
+
+
+/* 宿舍安全状态 */
+.ssaqztBox{
+	width:100%;
+	height:20%;
+	float:left;
+	padding:10px 20px;
+	padding-left:60px;
+	position:relative;
+}
+.ssaqztBox .text{
+	width:50px;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	text-align:right;
+	color:#04cbf5;
+	font-size:14px;
+}
+.ssaqztBox .boxs{
+	width:100%;
+	height:100%;
+	float:left;
+	position:relative;
+}
+.ssaqztBox .boxs .box{
+	width:100%;
+	height:18px;
+	position:absolute;
+	top:50%;
+	left:0;
+	margin-top:-8px;
+	background:rgba(4,203,245,.1);
+	border-radius:50px;
+	overflow:hidden;
+}
+.ssaqztBox .boxs .box .boxMain{
+	width:50%;
+	height:18px;
+	line-height:17px;
+	font-size:12px;
+	text-align:center;
+	color:#fff;
+	float:left;
+}
+/*.ssaqztBox .boxs .box.bg_ssaq_green{
+	border:1px solid rgba(25,185,85,.9);
+}
+.ssaqztBox .boxs .box.bg_ssaq_orange{
+	border:1px solid rgba(249,164,35,.5);
+}
+.ssaqztBox .boxs .box.bg_ssaq_red{
+	border:1px solid rgba(222,4,28,.5);
+}*/
+.ssaqztBox .boxs .box.bg_ssaq_green .boxMain{
+	background:rgba(25, 185, 85,.7);
+}
+.ssaqztBox .boxs .box.bg_ssaq_orange .boxMain{
+	background:rgba(248, 131, 25,.7);
+}
+.ssaqztBox .boxs .box.bg_ssaq_red .boxMain{
+	background:rgba(221, 54, 53,.7);
+}
+
+/* count_left_num */
+.count_left_num{
+	width:100%;
+	height:100%;
+	color:#fff;
+	float:left;
+}
+.count_left_num_box{
+	width:50%;
+	height:50%;
+	text-align:center;
+	position:relative;
+	display:table;
+	float:left;
+}
+.count_left_num_box:nth-child(1),.count_left_num_box:nth-child(2){
+	padding-bottom:5px;
+}
+.count_left_num_box:nth-child(3),.count_left_num_box:nth-child(4){
+	padding-top:5px;
+}
+.count_left_num_box:nth-child(1),.count_left_num_box:nth-child(3){
+	padding-right:5px;
+}
+.count_left_num_box:nth-child(2),.count_left_num_box:nth-child(4){
+	padding-left:5px;
+}
+.count_left_num_box .count_left_num_main{
+	width:100%;
+	height:100%;
+	border-radius:3px;
+	position:relative;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+.count_left_num_left{
+	border:1px solid rgba(4,203,245,.8);
+	background:rgba(4,203,245,.15);
+	color:#04cbf5;
+}
+.count_left_num_right{
+	border:1px solid rgba(230,76,76,.8);
+	background:rgba(230,76,76,.15);
+	color:#e64c4c;
+}
+.count_left_num_box .text{
+	width:100%;
+	height:auto;
+	font-size:15px;
+	position:relative;
+}
+.count_left_num_box .num{
+	width:100%;
+	height:auto;
+	float:left;
+	font-size:30px;
+	font-weight:bold;
+	position:relative;
+}

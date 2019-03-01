@@ -1,0 +1,582 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>疾病安全大数据分析平台 - 平安校园大数据分析平台</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countSickness.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".count_tab_001_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_001_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_001_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_002_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_002_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_002_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_middle_001_num_box .text").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+		$(".count_middle_001_num_box .num").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+	});
+	$(window).resize(function(){
+		$(".count_middle_001_num_box .text").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+		$(".count_middle_001_num_box .num").each(function(index, element) {
+			$(this).css("line-height",$(this).height()+"px");
+		});
+	});
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a current"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">医疗保障资源</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="ylbzzy">
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_ylbzzy_001.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">50<span class="smallText">台</span></span><span class="text">红外探温议</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_ylbzzy_002.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">45<span class="smallText">台</span></span><span class="text">紫外消毒灯</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_ylbzzy_003.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">50<span class="smallText">袋</span></span><span class="text">消毒粉</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_ylbzzy_004.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">50<span class="smallText">台</span></span><span class="text">诊疗设备</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_ylbzzy_004.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">268<span class="smallText">件</span></span><span class="text">应急药品</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ylbzzy_box">
+                                    <div class="ylbzzy_main">
+                                        <span class="img">
+                                            <img src="images/img_ylbzzy_005.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">15<span class="smallText">名</span></span><span class="text">掌握应急技能教师</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">疾病预防活动</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">活动日期</span>
+                                    <span class="th">活动名称</span>
+                                    <span class="th">结果</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>学生测温</td>
+                                            <td><span class="text_red">2名同学疑似发烧</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-10</td>
+                                            <td>所有教室消毒</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-08</td>
+                                            <td>登革热教育课程</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-07</td>
+                                            <td>疾病应急培训</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-06</td>
+                                            <td>如何预防流感课程</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-05</td>
+                                            <td>登革热教育课程</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-04</td>
+                                            <td>疾病应急培训</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-02</td>
+                                            <td>如何预防流感课程</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时疾病上报</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">学生</span>
+                                    <span class="th">疾病</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>101 张艺源</td>
+                                            <td>感冒</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>102 王建华</td>
+                                            <td>发烧感冒</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>105 吴冰玉</td>
+                                            <td>骨伤</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>103 刘易阳</td>
+                                            <td>疑似登革热</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>103 张逸杰</td>
+                                            <td>疑似登革热</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>201 郁镠宇</td>
+                                            <td>摔伤</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>205 郑培育</td>
+                                            <td>耳朵痛</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_middle_001">
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">本学期疑似疾病案例</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">256</span>
+                                <span style="font-size:16px;margin-left:10px;">例</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                	<span class="icon"></span><span class="num">126</span><span class="text">疑似传染疾病</span>
+                                </div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                	<span class="icon"></span><span class="num">93</span><span class="text">疑似发烧传染疾病</span>
+                                </div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                	<span class="icon"></span><span class="num">33</span><span class="text">其他疑似传染疾病</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">疾病趋势分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_01">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="width:50%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">传染病分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_02"></div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="width:50%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">疾病类别分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_03"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">消毒与卫生巡查记录</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail xdws">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">地点</span>
+                                    <span class="th">纪要</span>
+                                    <span class="th">负责人</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11</td>
+                                            <td>智慧学校</td>
+                                            <td>消毒活动</td>
+                                            <td>张晓宇</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-10</td>
+                                            <td>城南中学</td>
+                                            <td>消毒活动</td>
+                                            <td>王俊义</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-09</td>
+                                            <td>城南中学</td>
+                                            <td>教学楼卫生消毒</td>
+                                            <td>张权益</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-08</td>
+                                            <td>智慧学校</td>
+                                            <td>消毒活动</td>
+                                            <td>张晓宇</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-05</td>
+                                            <td>城南中学</td>
+                                            <td>消毒活动</td>
+                                            <td>王俊义</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-04</td>
+                                            <td>城南中学</td>
+                                            <td>教学楼卫生消毒</td>
+                                            <td>张权益</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体温探测记录</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current">探温记录</a>
+                                <a href="javascript:" class="count_tab_002_a">异常温度记录</a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current" id="count_04"></div>
+                                <div class="count_tab_002_detail" id="count_05"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时体温探测</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">实时体温</a>
+                                <a href="javascript:" class="count_tab_001_a">异常温度</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_table_detail count_tab_001_detail current">
+                                    <span class="tr">
+                                        <span class="th">日期</span>
+                                        <span class="th">学生</span>
+                                        <span class="th">结果</span>
+                                    </span>
+                                    <div class="count_table_detail_main">
+                                        <table>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>101 张艺源</td>
+                                                <td><span class="text_green">37度正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>102 王建华</td>
+                                                <td><span class="text_green">37度正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>105 吴冰玉</td>
+                                                <td><span class="text_red">39度发烧</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>103 刘易阳</td>
+                                                <td><span class="text_green">37度正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>103 张逸杰</td>
+                                                <td><span class="text_green">37度正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>201 郁镠宇</td>
+                                                <td><span class="text_green">37度正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>205 郑培育</td>
+                                                <td><span class="text_green">37度正常</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="count_table_detail count_tab_001_detail">
+                                    <span class="tr">
+                                        <span class="th">日期</span>
+                                        <span class="th">人数</span>
+                                        <span class="th">结果</span>
+                                    </span>
+                                    <div class="count_table_detail_main">
+                                        <table>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>200</td>
+                                                <td><span class="text_green">正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-10</td>
+                                                <td>100</td>
+                                                <td><span class="text_red">2名同学疑似发烧</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-09</td>
+                                                <td>50</td>
+                                                <td><span class="text_red">1名同学疑似发烧</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-08</td>
+                                                <td>195</td>
+                                                <td><span class="text_green">正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-11</td>
+                                                <td>200</td>
+                                                <td><span class="text_green">正常</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-10</td>
+                                                <td>100</td>
+                                                <td><span class="text_red">2名同学疑似发烧</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-09</td>
+                                                <td>50</td>
+                                                <td><span class="text_red">1名同学疑似发烧</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01-08</td>
+                                                <td>195</td>
+                                                <td><span class="text_green">正常</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartSickness.js"></script>
+</body>
+</html>

@@ -1,0 +1,798 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>校车安全大数据分析平台 - 平安校园大数据分析平台</title>
+<script type="text/javascript" src="layui/layui.js"></script>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countSchoolCar.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="ckplayer/ckplayer.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$(".count_tab_002_detail").hide();
+			$(".count_tab_002_detail").each(function(index, element) {
+				if(index==0){
+					$(this).show();
+				}
+			});
+		},1000);
+		$(".count_tab_001_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_001_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_001_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_002_a").each(function(index, element) {
+			var times = 0;
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_002_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_002_detail").hide();
+						$(this).show();
+					}
+				});
+		   });
+        });
+		$(".count_tab_003_a").each(function(index, element) {
+			var times = 0;
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_003_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_003_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_003_detail").hide();
+						$(this).show();
+					}
+				});
+		   });
+        });
+	});
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a current"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">校车安全事件分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">事件分类</a>
+                                <a href="javascript:" class="count_tab_001_a">处理分类</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_tab_001_detail current" id="count_03"></div>
+                                <div class="count_tab_001_detail" id="count_04"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">校车状态检查结果</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_01">
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">接送学生校车轨迹</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_5">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">车辆</span>
+                                    <span class="th">地点</span>
+                                    <span class="th">实载(人)</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>君悦名庭附近</td>
+                                            <td>22</td>
+                                            <td><span class="text_red">偏离</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>2号车</td>
+                                            <td>君悦名庭附近</td>
+                                            <td>23</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>3号车</td>
+                                            <td>实验学校</td>
+                                            <td>45</td>
+                                            <td><span class="text_green">终点站</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>4号车</td>
+                                            <td>君悦名庭附近</td>
+                                            <td>22</td>
+                                            <td><span class="text_red">偏离</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>5号车</td>
+                                            <td>君悦名庭附近</td>
+                                            <td>23</td>
+                                            <td><span class="text_green">正常</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>6号车</td>
+                                            <td>实验学校</td>
+                                            <td>45</td>
+                                            <td><span class="text_green">终点站</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_middle_001">
+                    <div class="count_middle_001_position">
+                        <span class="mainBox">
+                            <span class="text">接送学生累计</span>
+                            <span class="num"><span class="numBox">2</span><span class="numBox">4</span><span class="numBox">7</span><span class="numBox">8</span><span class="numBoxText">人次</span></span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">接送任务</span>
+                            <span class="num"><span class="numBox">2</span><span class="numBox">3</span><span class="numBox">8</span><span class="numBoxText">次</span></span>
+                        </span>
+                        <span class="mainBox">
+                            <span class="text">校车</span>
+                            <span class="num"><span class="numBox">2</span><span class="numBox">2</span><span class="numBoxText">辆</span></span>
+                        </span>
+                    </div>
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">校车安全预警</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">45</span>
+                                <span style="font-size:16px;margin-left:10px;">次</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">已处理</span><span class="num">43</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_right"><span class="text">未处理</span><span class="num">2</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">校车预警事件</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_4">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">车辆</span>
+                                    <span class="th">地点</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>偏离轨迹</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>偏离轨迹</td>
+                                            <td><span class="text_red">未处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>偏离轨迹</td>
+                                            <td><span class="text_red">未处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>超速</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>投诉</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>超速</td>
+                                            <td><span class="text_green">已处理</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>偏离轨迹</td>
+                                            <td><span class="text_red">未处理</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">校车行驶计划与历史</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-left:60px;padding-bottom:0px;padding-right:10px;">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current"><span>行<br/>
+                                        驶<br/>
+                                        计<br/>
+                                        划</span></a>
+                                <a href="javascript:" class="count_tab_002_a"><span>行<br/>
+                                        驶<br/>
+                                        历<br/>
+                                        史</span></a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current">
+                        			<div id="slideBox" class="slideBox">
+                                        <div class="bd">
+                                            <ul>
+                                                <li>
+                                                    <div class="layui-timeline">
+                                                        <div class="layui-timeline-item">
+                                                            <i class="layui-icon layui-timeline-axis"></i>
+                                                            <div class="layui-timeline-content layui-text">
+                                                                <span class="xs_time">2019-01-19 12:00 至 16:58</span>
+                                                                <span class="xs_detail">
+                                                                	<span class="spans">车辆 : 1号车</span>
+                                                                    <span class="spans">车牌 : 粤UUS888</span>
+                                                                    <span class="spans">司机 : 杨明</span>
+                                                                    <span class="spans">随车老师 : 江海铭</span>
+                                                                    <span class="spanHalfs">任务 : 接学生回校</span>
+                                                                    <span class="spanAll">规划路线 : 实验学校 → 庵埠冠园站点 → 实验学校</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-timeline-item">
+                                                            <i class="layui-icon layui-timeline-axis"></i>
+                                                            <div class="layui-timeline-content layui-text">
+                                                                <span class="xs_time">2019-01-18 12:00 至 16:58</span>
+                                                                <span class="xs_detail">
+                                                                	<span class="spans">车辆 : 2号车</span>
+                                                                    <span class="spans">车牌 : 粤UUS888</span>
+                                                                    <span class="spans">司机 : 杨明</span>
+                                                                    <span class="spans">随车老师 : 江海铭</span>
+                                                                    <span class="spanHalfs">任务 : 接学生回校</span>
+                                                                    <span class="spanAll">规划路线 : 实验学校 → 庵埠冠园站点 → 实验学校</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="layui-timeline">
+                                                        <div class="layui-timeline-item">
+                                                            <i class="layui-icon layui-timeline-axis"></i>
+                                                            <div class="layui-timeline-content layui-text">
+                                                                <span class="xs_time">2019-01-18 12:00 至 16:58</span>
+                                                                <span class="xs_detail">
+                                                                	<span class="spans">车辆 : 3号车</span>
+                                                                    <span class="spans">车牌 : 粤UUS888</span>
+                                                                    <span class="spans">司机 : 杨明</span>
+                                                                    <span class="spans">随车老师 : 江海铭</span>
+                                                                    <span class="spanHalfs">任务 : 接学生回校</span>
+                                                                    <span class="spanAll">规划路线 : 实验学校 → 庵埠冠园站点 → 实验学校</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="hd">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        setTimeout(function(){
+                                            TouchSlide({ 
+												slideCell:"#slideBox",
+												titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+												mainCell:".bd ul", 
+												effect:"leftLoop", 
+												autoPage:true,//自动分页
+												autoPlay:true, //自动播放
+												interTime:10000
+											});
+                                            $(".slideBox .bd ul li").height($(".count_tab_002_main").height()-50);
+                                        },800);
+										$(window).resize(function(){
+                                            $(".slideBox .bd ul li").height($(".count_tab_002_main").height()-50);
+										});
+                                    </script>
+                                </div>
+                                <div class="count_tab_002_detail">
+                                	<div id="slideBox2" class="slideBox">
+                                        <div class="bd">
+                                            <ul>
+                                                <li>
+                                                    <div class="layui-timeline">
+                                                        <div class="layui-timeline-item">
+                                                            <i class="layui-icon layui-timeline-axis"></i>
+                                                            <div class="layui-timeline-content layui-text">
+                                                                <span class="xs_time">2019-01-19 12:00 至 16:58</span>
+                                                                <span class="xs_detail">
+                                                                	<span class="spans">车辆 : 1号车</span>
+                                                                    <span class="spans">车牌 : 粤UUS888</span>
+                                                                    <span class="spans">司机 : 杨明</span>
+                                                                    <span class="spans">随车老师 : 江海铭</span>
+                                                                    <span class="spanHalfs">任务 : 接学生回校</span>
+                                                                    <span class="spanAll">任务完成情况 : 按照计划路线行驶,接回30名学生,未投诉,未超速</span>
+                                                                    <span class="spanAll">规划路线 : 实验学校 → 庵埠冠园站点 → 实验学校</span>
+                                                                    <span class="spanAll">实际路线 : 实验学校 → 庵埠冠园站点 → 中间站点 → 实验学校</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="layui-timeline-item">
+                                                            <i class="layui-icon layui-timeline-axis"></i>
+                                                            <div class="layui-timeline-content layui-text">
+                                                                <span class="xs_time">2019-01-19 12:00 至 16:58</span>
+                                                                <span class="xs_detail">
+                                                                	<span class="spans">车辆 : 2号车</span>
+                                                                    <span class="spans">车牌 : 粤UUS888</span>
+                                                                    <span class="spans">司机 : 杨明</span>
+                                                                    <span class="spans">随车老师 : 江海铭</span>
+                                                                    <span class="spanHalfs">任务 : 接学生回校</span>
+                                                                    <span class="spanAll">任务完成情况 : 按照计划路线行驶,接回30名学生,未投诉,未超速</span>
+                                                                    <span class="spanAll">规划路线 : 实验学校 → 庵埠冠园站点 → 实验学校</span>
+                                                                    <span class="spanAll">实际路线 : 实验学校 → 庵埠冠园站点 → 中间站点 → 实验学校</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="layui-timeline">
+                                                        <div class="layui-timeline-item">
+                                                            <i class="layui-icon layui-timeline-axis"></i>
+                                                            <div class="layui-timeline-content layui-text">
+                                                                <span class="xs_time">2019-01-19 12:00 至 16:58</span>
+                                                                <span class="xs_detail">
+                                                                	<span class="spans">车辆 : 1号车</span>
+                                                                    <span class="spans">车牌 : 粤UUS888</span>
+                                                                    <span class="spans">司机 : 杨明</span>
+                                                                    <span class="spans">随车老师 : 江海铭</span>
+                                                                    <span class="spanHalfs">任务 : 接学生回校</span>
+                                                                    <span class="spanAll">任务完成情况 : 按照计划路线行驶,接回30名学生,未投诉,未超速</span>
+                                                                    <span class="spanAll">规划路线 : 实验学校 → 庵埠冠园站点 → 实验学校</span>
+                                                                    <span class="spanAll">实际路线 : 实验学校 → 庵埠冠园站点 → 中间站点 → 实验学校</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="hd">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        setTimeout(function(){
+                                            TouchSlide({ 
+												slideCell:"#slideBox2",
+												titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+												mainCell:".bd ul", 
+												effect:"leftLoop", 
+												autoPage:true,//自动分页
+												autoPlay:true, //自动播放
+												interTime:10000
+											});
+                                            $(".slideBox .bd ul li").height($(".count_tab_002_main").height()-50);
+                                        },800);
+										$(window).resize(function(){
+                                            $(".slideBox .bd ul li").height($(".count_tab_002_main").height()-50);
+										});
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box" style="height:31%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时状态</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-left:60px;padding-right:10px;">
+                            <div class="count_tab_003">
+                                <a href="javascript:" class="count_tab_003_a current"><span>实<br />时<br />视<br />频</span></a>
+                                <a href="javascript:" class="count_tab_003_a"><span>在<br />线<br />率</span></a>
+                            </div>
+                            <div class="count_tab_003_main">
+                                <div class="count_tab_003_detail current">
+                                	<div id="slideBox3" class="slideBox2">
+                                        <div class="bd">
+                                            <ul>
+                                                <li>
+                                                	<span class="ssspBox">
+                                                    	<span class="ssspBoxMain">
+                                                        	<div id="video" style="width: 100%; height: 100%;"></div>
+															<!--<script type="text/javascript">
+                                                                var videoObject = {
+                                                                    container: '#video', //容器的ID或className
+                                                                    variable: 'player',//播放函数名称
+                                                                    flashplayer:true,
+																	loop: true,
+																	autoplay: true,
+                                                                    video: [//视频地址列表形式
+                                                                        ['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '中文标清', 0]
+                                                                    ]
+                                                                };
+                                                                var player = new ckplayer(videoObject);
+                                                            </script>-->
+                                                        </span>
+                                                        <span class="ssspBoxText">校车1</span>
+                                                    </span>
+                                                	<span class="ssspBox">
+                                                    	<span class="ssspBoxMain">
+                                                        	<div id="video2" style="width: 100%; height: 100%;"></div>
+															<!--<script type="text/javascript">
+                                                                var videoObject2 = {
+                                                                    container: '#video2', //容器的ID或className
+                                                                    variable: 'player',//播放函数名称
+                                                                    flashplayer:true,
+																	loop: true,
+																	autoplay: true,
+                                                                    video: [//视频地址列表形式
+                                                                        ['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '中文标清', 0]
+                                                                    ]
+                                                                };
+                                                                var player = new ckplayer(videoObject2);
+                                                            </script>-->
+                                                        </span>
+                                                        <span class="ssspBoxText">校车2</span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                	<span class="ssspBox">
+                                                    	<span class="ssspBoxMain">
+                                                        	<div id="video3" style="width: 100%; height: 100%;"></div>
+															<!--<script type="text/javascript">
+                                                                var videoObject3 = {
+                                                                    container: '#video3', //容器的ID或className
+                                                                    variable: 'player',//播放函数名称
+                                                                    flashplayer:true,
+																	loop: true,
+																	autoplay: true,
+                                                                    video: [//视频地址列表形式
+                                                                        ['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '中文标清', 0]
+                                                                    ]
+                                                                };
+                                                                var player = new ckplayer(videoObject3);
+                                                            </script>-->
+                                                        </span>
+                                                        <span class="ssspBoxText">校车3</span>
+                                                    </span>
+                                                	<span class="ssspBox">
+                                                    	<span class="ssspBoxMain">
+                                                        	<div id="video4" style="width: 100%; height: 100%;"></div>
+															<!--<script type="text/javascript">
+                                                                var videoObject4 = {
+                                                                    container: '#video4', //容器的ID或className
+                                                                    variable: 'player',//播放函数名称
+                                                                    flashplayer:true,
+																	loop: true,
+																	autoplay: true,
+                                                                    video: [//视频地址列表形式
+                                                                        ['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '中文标清', 0]
+                                                                    ]
+                                                                };
+                                                                var player = new ckplayer(videoObject4);
+                                                            </script>-->
+                                                        </span>
+                                                        <span class="ssspBoxText">校车4</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="hd">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        setTimeout(function(){
+                                            TouchSlide({ 
+												slideCell:"#slideBox3",
+												titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+												mainCell:".bd ul", 
+												effect:"leftLoop", 
+												autoPage:true,//自动分页
+												autoPlay:true, //自动播放
+												interTime:10000
+											});
+                                            $(".slideBox2 .bd ul li").height($(".count_tab_003_main").height()-20);
+                                        },800);
+										$(window).resize(function(){
+                                            $(".slideBox2 .bd ul li").height($(".count_tab_003_main").height()-20);
+										});
+                                    </script>
+                                </div>
+                                <div class="count_tab_003_detail" id="count_05"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:23%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">接送学生统计</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_02">
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:23%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">校车出行记录</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_4">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">车辆</span>
+                                    <span class="th">公里数</span>
+                                    <span class="th">详情</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>150公里</td>
+                                            <td>接学生</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>2号车</td>
+                                            <td>80公里</td>
+                                            <td>接学生</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>3号车</td>
+                                            <td>20公里</td>
+                                            <td>维修</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>4号车</td>
+                                            <td>120公里</td>
+                                            <td>临时任务</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>5号车</td>
+                                            <td>110公里</td>
+                                            <td>临时任务</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>6号车</td>
+                                            <td>10公里</td>
+                                            <td>临时任务</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>7号车</td>
+                                            <td>130公里</td>
+                                            <td>春游</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:23%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">学生上下车记录</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_5">
+                                <span class="tr">
+                                    <span class="th">时间</span>
+                                    <span class="th">车辆</span>
+                                    <span class="th">学生</span>
+                                    <span class="th">形式</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>102班 吴君如</td>
+                                            <td>人脸</td>
+                                            <td>上车</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>102班 张朝阳</td>
+                                            <td>刷卡</td>
+                                            <td>上车</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>102班 吴一洋</td>
+                                            <td>刷卡</td>
+                                            <td>下车</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>103班 杨阳洋</td>
+                                            <td>刷卡</td>
+                                            <td>下车</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>2号车</td>
+                                            <td>105班 王艺颖</td>
+                                            <td>人脸</td>
+                                            <td>下车</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>102班 吴一洋</td>
+                                            <td>刷卡</td>
+                                            <td>下车</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>1号车</td>
+                                            <td>103班 杨阳洋</td>
+                                            <td>刷卡</td>
+                                            <td>下车</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-11 11:55</td>
+                                            <td>2号车</td>
+                                            <td>105班 王艺颖</td>
+                                            <td>人脸</td>
+                                            <td>下车</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartSchoolCar.js"></script>
+</body>
+</html>

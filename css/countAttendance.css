@@ -1,0 +1,665 @@
+﻿/*
+******************************
+********** author:@zhou小白猪
+******************************
+*/
+
+.count_main {
+	padding-bottom: 0;
+}
+.count_left, .count_right {
+	width: 30%;
+	height: 100%;
+	float: left;
+	position:relative;
+}
+.count_middle {
+	width: 40%;
+	height: 100%;
+	float: left;
+	position:relative;
+}
+.count_common_box {
+	height: 33.3%;
+}
+/* count_middle_selectData */
+.count_middle_selectData {
+	width: 100%;
+	height: 8.6%;
+	float: left;
+}
+.count_middle_selectData .count_middle_selectDataBox {
+	width: 240px;
+	height: 40px;
+	position: absolute;
+	left: 50%;
+	margin-left: -120px;
+	border: 1px solid rgba(4,203,245,.6);
+	background: rgba(4,203,245,.1);
+	margin-top: 30px;
+}
+.count_middle_selectData input {
+	width: 100%;
+	height: 38px;
+	float: left;
+	border: 0;
+	background: none;
+	color: #fff;
+	padding: 0 10px;
+	font-weight: normal;
+	text-align: center;
+	font-size: 15px;
+	position: relative;
+	z-index: 3;
+	cursor: pointer;
+}
+.count_middle_selectDataBox .icon {
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	background: url(../images/icon_down.png) no-repeat;
+	background-size: cover;
+	top: 50%;
+	margin-top: -6px;
+	left: 50%;
+	margin-left: 60px;
+	opacity: .8;
+}
+.count_middle_selectData .commonBoxTop:before, .count_middle_selectData .commonBoxTop:after, .count_middle_selectData .commonBoxBottom:before, .count_middle_selectData .commonBoxBottom:after {
+	content: "";
+	width: 8px;
+	height: 8px;
+	position: absolute;
+}
+.count_middle_selectData .commonBoxTop:before {
+	border-left: 3px solid #04cbf5;
+	border-top: 3px solid #04cbf5;
+	top: -2px;
+	left: -2px;
+}
+.count_middle_selectData .commonBoxTop:after {
+	border-right: 3px solid #04cbf5;
+	border-top: 3px solid #04cbf5;
+	top: -2px;
+	right: -2px;
+}
+.count_middle_selectData .commonBoxBottom:before {
+	border-left: 3px solid #04cbf5;
+	border-bottom: 3px solid #04cbf5;
+	bottom: -2px;
+	left: -2px;
+}
+.count_middle_selectData .commonBoxBottom:after {
+	border-right: 3px solid #04cbf5;
+	border-bottom: 3px solid #04cbf5;
+	bottom: -2px;
+	right: -2px;
+}
+/* count_middle_001 */
+.count_middle_001 {
+	width: 100%;
+	height: 35%;
+	float: left;
+	position: relative;
+	padding: 0 10px;
+	padding-bottom: 20px;
+}
+.count_middle_001_box {
+	width: 100%;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+.count_middle_001_text {
+	width: 100%;
+	height: 90%;
+	float: left;
+	background: url(../images/bg_003.png) no-repeat center;
+	background-size: auto 100%;
+	color: #fff;
+	display: table;
+	margin-top: 3.5%;
+}
+.count_middle_001_text .text {
+	width: 100%;
+	height: 100%;
+	line-height: 45px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.count_middle_001_left {
+	width: 23%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.count_middle_001_left_box {
+	width: 100%;
+	height: 33.3%;
+	float: left;
+	margin-top: -8px;
+}
+.count_middle_001_right {
+	width: 23%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.count_middle_001_right_box {
+	width: 100%;
+	height: 33.3%;
+	float: left;
+	margin-top: -8px;
+}
+.count_middle_001_position {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 3;
+}
+.count_middle_001_position .mainBox {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.count_middle_001_position .mainBox .text {
+	width: 100%;
+	height: auto;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: #46d9f8;
+	margin-bottom: 8px;
+	margin-top: 10px;
+}
+.count_middle_001_position .mainBox .text_first:before {
+	content: "";
+	width: 5px;
+	height: 12px;
+	float: left;
+	background: #04cbf5;
+	margin-right: 8px;
+	margin-top: 4px;
+	margin-left: 2px;
+}
+.count_middle_001_position .mainBox .num {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.count_middle_001_position .mainBox .num .numBox {
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	float: left;
+	background: rgba(0,200,255,.15);
+	color: #fff;
+	font-size: 28px;
+	font-weight: bold;
+	margin-right: 5px;
+	border-radius: 2px;
+}
+.count_middle_001_position .mainBox .num .numBoxText {
+	font-size: 14px;
+	color: #fff;
+	float: left;
+	margin-top: 16px;
+	margin-left: 5px;
+}
+.count_middle_001_position_right {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 3;
+}
+.count_middle_001_position_right .mainBox {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.count_middle_001_position_right .mainBox .text {
+	float: right;
+	font-size: 14px;
+	color: #46d9f8;
+	margin-top: 10px;
+	text-align: right;
+	font-weight: bold;
+}
+.count_middle_001_position_right .mainBox .text_first:after {
+	content: "";
+	width: 5px;
+	height: 12px;
+	float: right;
+	background: #04cbf5;
+	margin-left: 8px;
+	margin-top: 4px;
+	margin-right: 3px;
+}
+.count_middle_001_position_right .mainBox .text .texts {
+	float: left;
+	margin-top: 17px;
+	margin-right: 10px;
+}
+.count_middle_001_position_right .mainBox .num {
+	float: left;
+}
+.count_middle_001_position_right .mainBox .num .numBox {
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	float: left;
+	background: rgba(0,200,255,.15);
+	color: #fff;
+	font-size: 28px;
+	font-weight: bold;
+	margin-right: 5px;
+	border-radius: 2px;
+}
+.count_middle_001_position_right .mainBox .num .numBoxText {
+	font-size: 14px;
+	color: #fff;
+	float: left;
+	margin-top: 16px;
+	margin-left: 5px;
+}
+/* count_middle_002 */
+.count_middle_002 {
+	width: 100%;
+	height: 23%;
+	float: left;
+	position: relative;
+	padding: 0 10px;
+	padding-bottom: 20px;
+}
+.count_middle_002_num {
+	width: 100%;
+	height: 50%;
+	color: #fff;
+	float: left;
+	padding: 5px 0;
+}
+.count_middle_002_num_box {
+	width: 25%;
+	height: 100%;
+	padding: 0 5px;
+	text-align: center;
+	position: relative;
+	display: table;
+	float: left;
+}
+.count_middle_002_num_box:first-child {
+	padding-left: 0;
+}
+.count_middle_002_num_box:last-child {
+	padding-right: 0;
+}
+.count_middle_002_num_box .count_middle_002_num_main {
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 5px;
+}
+.count_middle_002_num_left {
+	border: 1px solid rgba(4,203,245,.8);
+	background: rgba(4,203,245,.15);
+	color: #04cbf5;
+}
+.count_middle_002_num_right {
+	border: 1px solid rgba(230,76,76,.8);
+	background: rgba(230,76,76,.15);
+	color: #e64c4c;
+}
+.count_middle_002_num_box .text {
+	width: 100%;
+	height: auto;
+	font-size: 15px;
+	position: relative;
+}
+.count_middle_002_num_box .num {
+	width: 100%;
+	height: auto;
+	float: left;
+	font-size: 28px;
+	font-weight: bold;
+	position: relative;
+}
+/** count_middle_002_active **/
+.count_middle_002_active {
+	width: 100%;
+	height: 50%;
+	float: left;
+}
+.count_middle_002_active .count_middle_002_active_box {
+	width: 100%;
+	height: 50%;
+	float: left;
+	padding-top: 10px;
+	position: relative;
+}
+.count_middle_002_active_box .detail {
+	width: 100%;
+	height: 100%;
+	float: left;
+	border: 1px solid rgba(4,203,245,.2);
+	background: rgba(4,203,245,.08);
+	padding-left: 140px;
+	padding-right: 10px;
+	position: relative;
+}
+.count_middle_002_active_box .detail .title {
+	width: 130px;
+	height: 100%;
+	text-align: center;
+	background: rgba(4,203,245,.2);
+	color: rgba(255,255,255,1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-weight: bold;
+}
+.count_middle_002_active_box .detail .mainBox {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+.txtScroll-top {
+	width: 100%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+.txtScroll-top .bd {
+	width: 100%;
+	height: 100%;
+	float: left;
+	padding: 0;
+}
+.txtScroll-top .infoList li {
+	width: 100%;
+	height: 100%;
+	float: left;
+	color: #fff;
+	text-align:center;
+}
+.txtScroll-top .infoList li .infoText {
+	font-size: 14px;
+}
+/* count_tab_001 */
+.count_tab_001 {
+	width: 100%;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 20%;
+}
+.count_tab_001 a {
+	width: 33.3%;
+	height: 30px;
+	line-height: 28px;
+	text-align: center;
+	float: left;
+	border: 1px solid rgba(4,203,245,.6);
+	background: rgba(4,203,245,.1);
+	color: #fff;
+}
+.count_tab_001 a:hover {
+	color: #fff;
+}
+.count_tab_001 a:first-child {
+	border-right: 0;
+}
+.count_tab_001 a:nth-child(2) {
+	border-left: 0;
+	border-right: 0;
+}
+.count_tab_001 a:last-child {
+	border-left: 0;
+}
+.count_tab_001 a:hover {
+	text-decoration: none;
+}
+.count_tab_001 a.current {
+	background: rgba(4,203,245,.6);
+	font-weight: bold;
+}
+.count_tab_001_main {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+.count_tab_001_detail {
+	width: 100%;
+	height: 100%;
+	float: left;
+	display: none;
+}
+.count_tab_001_detail.current {
+	display: block;
+}
+/* count_tab_002 */
+.count_tab_002 {
+	width: 100%;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 20%;
+}
+.count_tab_002 a {
+	width: 25%;
+	height: 30px;
+	line-height: 28px;
+	text-align: center;
+	float: left;
+	border-top: 1px solid rgba(4,203,245,.6);
+	border-bottom: 1px solid rgba(4,203,245,.6);
+	background: rgba(4,203,245,.1);
+	color: #fff;
+}
+.count_tab_002 a:hover {
+	color: #fff;
+}
+.count_tab_002 a:first-child {
+	border-left: 1px solid rgba(4,203,245,.6);
+}
+.count_tab_002 a:last-child {
+	border-right: 1px solid rgba(4,203,245,.6);
+}
+.count_tab_002 a:hover {
+	text-decoration: none;
+}
+.count_tab_002 a.current {
+	background: rgba(4,203,245,.6);
+	font-weight: bold;
+}
+.count_tab_002_main {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+.count_tab_002_detail {
+	width: 100%;
+	height: 100%;
+	float: left;
+	display: none;
+}
+.count_tab_002_detail.current {
+	display: block;
+}
+/*异常考勤*/
+.yckqText {
+	width: 100%;
+	height: 35px;
+	line-height: 30px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 5px;
+	text-align: center;
+}
+.yckqText .texts {
+	font-size: 14px;
+	color: #fff;
+	margin: 0 8px;
+}
+/* 实时考勤头像 */
+.sskqBox {
+	width: 80px;
+	height: 42.5%;
+	position: absolute;
+	bottom:20px;
+	right: 10px;
+}
+.picMarquee-top {
+	margin: 0 auto;
+	width: 100%;
+	height:100%;
+	overflow: hidden;
+	position: relative;
+}
+.picMarquee-top .bd {
+}
+.picMarquee-top .bd ul {
+	overflow: hidden;
+	zoom: 1;
+}
+.picMarquee-top .bd ul li {
+	text-align: center;
+	zoom: 1;
+}
+.picMarquee-top .bd ul li .pic {
+	text-align: center;
+	background:rgba(4,203,245,.2);
+}
+.picMarquee-top .bd ul li .pic img {
+	width: 80px;
+	height: 90px;
+	display: block;
+	padding: 2px;
+	border: 1px solid rgba(4,203,245,.5);
+	border-radius:2px;
+	overflow:hidden;
+}
+.picMarquee-top .bd ul li .pic a:hover img {
+	border-color: #999;
+}
+.picMarquee-top .bd ul li .title {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 24px;
+	color:rgba(4,203,245,1);
+	padding-bottom:5px;
+}
+/* 列表 1 */
+.count_table_detail_1 .tr .th {
+	width: 25%;
+}
+.count_table_detail_1 table tr td {
+	width: 25%;
+}
+
+
+/*班级全勤*/
+img.img_qq{
+	width:25px;
+	height:25px;
+	margin-right:8px;
+}
+.baqq tr:nth-child(1) td{
+	color:#19b955;
+	font-weight:bold;
+}
+.baqq tr:nth-child(2) td{
+	color:#fb6f1a;
+	font-weight:bold;
+}
+.baqq tr:nth-child(3) td{
+	color:#fec35f;
+	font-weight:bold;
+}
+
+/* 年级全勤率分析 */
+.choose_date{
+	width:80%;
+	height:35px;
+	position:absolute;
+	top:0;
+	left:0;
+	margin:0 10%;
+	padding:0 40px;
+}
+.choose_date a.btn_pre{
+	width:30px;
+	height:30px;
+	position:absolute;
+	top:5px;
+	left:0;
+	background:rgba(4,203,245,.1) url(../images/icon_down.png) no-repeat center;
+	border:1px solid rgba(4,203,245,.5);
+	border-radius:2px;
+	transform:rotate(90deg);
+}
+.choose_date a.btn_next{
+	width:30px;
+	height:30px;
+	position:absolute;
+	top:0;
+	right:0;
+	background:rgba(4,203,245,.1) url(../images/icon_down.png) no-repeat center;
+	border:1px solid rgba(4,203,245,.5);
+	border-radius:2px;
+	transform:rotate(-90deg);
+}
+.choose_date .input_date{
+	width:30px;
+	height:30px;
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-left:55px;
+	background:url(../images/icon_down.png) no-repeat center;
+	opacity:.8;
+}
+.choose_date input{
+	width:100%;
+	height:30px;
+	float:left;
+	text-align:center;
+	border:0;
+	background:none;
+	color:#fff;
+	margin-top:0;
+	font-size:15px;
+	cursor:pointer;
+	position:relative;
+	z-index:2;
+}
+
+.nqqqfx_left{
+	width:45%;
+	height:100%;
+	float:left;
+}
+.nqqqfx_right{
+	width:55%;
+	height:100%;
+	float:left;
+}

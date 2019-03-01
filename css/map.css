@@ -1,0 +1,71 @@
+﻿html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+#container {
+	height: 100%;
+	background:#040e1a !important;
+}
+body, html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+.anchorBL {
+	display: none;
+}
+a.btn_refresh{
+	width:90px;
+	height:18px;
+	position:absolute;
+	background:url(../images/svg_img_refresh.svg) no-repeat;
+	background-size:cover;
+	z-index:10;
+	left:50%;
+	margin-left:230px;
+	top:10%;
+}
+.infoBox{
+	width:340px !important;
+	min-height:150px !important;
+	position:absolute;
+}
+.infoBox img{
+	width:15px !important;
+	height:15px !important;
+	position:absolute;
+	top:5px !important;
+	right:5px !important;
+	z-index:3;
+}
+.newInfoBox{
+	width:310px !important;
+	min-height:110px !important;
+	position:absolute;
+	background:rgba(0,200,255,.5);
+	border:1px solid #00c8ff;
+	border-radius:3px;
+	left:50%;
+	margin-left:-170px;
+	margin-bottom:20px;
+	padding:15px;
+	overflow:hidden;
+}
+.newInfoBox .newInfoDetail{
+	width:auto;
+	height:auto;
+	float:left;
+}
+.newInfoBox .newInfoDetail p{
+	line-height:25px;
+	font-size:15px;
+	color:#fff;
+	padding:0;
+	margin:0;
+}

@@ -1,0 +1,876 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学生体质健康大数据分析平台</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countPhysique.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".count_tab_001_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_001_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_001_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_002_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_002_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_002_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_003_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_003_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_003_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_003_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_004_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_004_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_004_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_004_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_005_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_005_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_005_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_005_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		/*查看项目指标*/
+		$("#click_xmzb").click(function(){
+			$(".popup_count").show();
+			$(".popup_mian").animate({left:"50%"},500);
+		});
+		$(".popup_black,.popup_main_close").click(function(){
+			$(".popup_mian").animate({left:"3000px"},500,function(){
+				$(".popup_count").hide();
+				$(".popup_mian").css("left","-3000px");
+			});
+		});
+	});
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+    	<!--弹出 项目及指标 Str-->
+        <div class="popup_count">
+        	<div class="popup_black"></div>
+            <div class="popup_mian">
+            	<div class="popup_main_text">
+                    <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                    <span class="text">规则与指标</span>
+                    <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                </div>
+                <div class="popup_main_close fa fa-close"></div>
+            	<div class="popup_main_box">
+                	<table>
+                    	<tr>
+                        	<th>组别</th><th>评价指标</th><th>分值</th>
+                        </tr>
+                        <tr>
+                        	<td rowspan="2">所有年级</td>
+                            <td>BMI</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>肺活量</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                        	<td rowspan="3">小学一、二年级</td>
+                            <td>50米跑</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>坐位体前屈</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>1分钟跳绳</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                        	<td rowspan="4">小学三、四年级</td>
+                            <td>50米跑</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>坐位体前屈</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>1分钟跳绳</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>1分钟仰卧起坐</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                        	<td rowspan="5">小学五、六年级</td>
+                            <td>50米跑</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>坐位体前屈</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>1分钟跳绳</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>1分钟仰卧起坐</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>50*8往返跑</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                        	<td rowspan="5">初中、高中、大学各年级</td>
+                            <td>50米跑</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>坐位体前屈</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>立定跳远</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>男生引体向上、女生1分钟仰卧起坐</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>男生1000米跑、女生800米跑</td>
+                            <td>20</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    	<!--弹出 项目及指标 End-->
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a current"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体质预警</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_2">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">学生</span>
+                                    <span class="th">项目</span>
+                                    <span class="th">状态</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>01-30</td>
+                                            <td>201 李雪怡</td>
+                                            <td>BMI值超标</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-30</td>
+                                            <td>201 蔡雪琴</td>
+                                            <td>BMI值超标</td>
+                                            <td class="text_red">未处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-30</td>
+                                            <td>301 伍佰</td>
+                                            <td>血氧超标</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-30</td>
+                                            <td>302 王步尔</td>
+                                            <td>血压超标</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-30</td>
+                                            <td>402 唐旭</td>
+                                            <td>心率超标</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-30</td>
+                                            <td>502 蔡武宇</td>
+                                            <td>心率超标</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01-30</td>
+                                            <td>203 吴碧莹</td>
+                                            <td>心率超标</td>
+                                            <td class="text_green">已处理</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体质测试统计</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current">优秀率</a>
+                                <a href="javascript:" class="count_tab_002_a">及格率</a>
+                                <a href="javascript:" class="count_tab_002_a">不及格率</a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current" id="count_05"></div>
+                                <div class="count_tab_002_detail" id="count_06"></div>
+                                <div class="count_tab_002_detail" id="count_07"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时体质测试</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_003">
+                                <a href="javascript:" class="count_tab_003_a current">学生体侧记录</a>
+                                <a href="javascript:" class="count_tab_003_a">体侧项目情况</a>
+                            </div>
+                            <div class="count_tab_003_main">
+                                <div class="count_tab_003_detail current">
+                               		<div class="count_table_detail count_table_detail_4">
+                                        <span class="tr">
+                                            <span class="th">日期</span>
+                                            <span class="th">学生</span>
+                                            <span class="th">测试项目</span>
+                                            <span class="th">成绩</span>
+                                            <span class="th">结果</span>
+                                        </span>
+                                        <div class="count_table_detail_main">
+                                            <table>
+                                                <tr>
+                                                    <td>01-30</td>
+                                                    <td>201 李雪怡</td>
+                                                    <td>立定跳远</td>
+                                                    <td>95</td>
+                                                    <td class="text_green">优秀</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>01-30</td>
+                                                    <td>201 蔡雪琴</td>
+                                                    <td>立定跳远</td>
+                                                    <td>59</td>
+                                                    <td class="text_red">不及格</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>01-30</td>
+                                                    <td>301 伍佰</td>
+                                                    <td>肺活量</td>
+                                                    <td>90</td>
+                                                    <td class="text_green">优秀</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>01-30</td>
+                                                    <td>302 王步尔</td>
+                                                    <td>50米跑</td>
+                                                    <td>92</td>
+                                                    <td class="text_green">优秀</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>01-30</td>
+                                                    <td>402 唐旭</td>
+                                                    <td>心率超标</td>
+                                                    <td>96</td>
+                                                    <td class="text_green">优秀</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>01-30</td>
+                                                    <td>502 蔡武宇</td>
+                                                    <td>仰卧起坐</td>
+                                                    <td>92</td>
+                                                    <td class="text_green">优秀</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>01-30</td>
+                                                    <td>203 吴碧莹</td>
+                                                    <td>1000米长跑</td>
+                                                    <td>92</td>
+                                                    <td class="text_green">优秀</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="count_tab_003_detail">
+                               		<div class="count_table_detail count_table_detail_5">
+                                        <span class="tr">
+                                            <span class="th">测试项目</span>
+                                            <span class="th">总人数</span>
+                                            <span class="th">优秀</span>
+                                            <span class="th">良好</span>
+                                            <span class="th">及格</span>
+                                            <span class="th">不及格</span>
+                                        </span>
+                                        <div class="count_table_detail_main">
+                                            <table>
+                                                <tr>
+                                                    <td>BMI</td>
+                                                    <td>525</td>
+                                                    <td>300</td>
+                                                    <td>200</td>
+                                                    <td>100</td>
+                                                    <td>125</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>50米跑</td>
+                                                    <td>525</td>
+                                                    <td>300</td>
+                                                    <td>200</td>
+                                                    <td>100</td>
+                                                    <td>125</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>立定跳远</td>
+                                                    <td>525</td>
+                                                    <td>300</td>
+                                                    <td>200</td>
+                                                    <td>100</td>
+                                                    <td>125</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>引体向上</td>
+                                                    <td>525</td>
+                                                    <td>300</td>
+                                                    <td>200</td>
+                                                    <td>100</td>
+                                                    <td>125</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>仰卧起坐</td>
+                                                    <td>525</td>
+                                                    <td>300</td>
+                                                    <td>200</td>
+                                                    <td>100</td>
+                                                    <td>125</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_middle_001">
+                    <div class="count_middle_selectData">
+                        <div class="count_middle_selectDataBox" title="点击查看项目及指标" id="click_xmzb">
+                            <div class="commonBoxTop"></div>
+                            <div class="commonBoxBottom"></div>
+                            <span class="icon"></span> 项目及指标 
+                        </div>
+                    </div>
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">学生总数</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">3568</span>
+                                <span style="font-size:16px;margin-left:10px;">人</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">优秀率</span><span class="num">23%</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">及格率</span><span class="num">80%</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_right"><span class="text">不及格率</span><span class="num">20%</span></div>
+                            </div>
+                        </div>
+                        <div class="count_middle_001_left">
+                            <div class="count_middle_001_left_box" id="count_middle_001"></div>
+                            <div class="count_middle_001_left_box" id="count_middle_002"></div>
+                        </div>
+                        <div class="count_middle_001_right">
+                            <div class="count_middle_001_right_box" id="count_middle_003"></div>
+                            <div class="count_middle_001_right_box" id="count_middle_004"></div>
+                        </div>
+                    </div>
+                    <div class="count_middle_001_bottom">
+                        <div class="count_middle_001_bottom_main">
+                            <div class="count_middle_001_bottom_mains">
+                                <div class="txtMarquee-left">
+                                    <div class="bd">
+                                        <ul class="infoList">
+                                            <li>500人 测试6项</li>
+                                            <li>325人 测试5项</li>
+                                            <li>225人 测试4项</li>
+                                            <li class="text_red">355人 测试3项</li>
+                                            <li class="text_red">245人 测试3项以下</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                jQuery(".txtMarquee-left").slide({mainCell:".bd ul",autoPlay:true,effect:"leftMarquee",vis:5,interTime:50});
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_middle_002">
+                    <div class="count_middle_002_box">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">年级体质概况</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_table_detail count_table_detail_1">
+                                <span class="tr">
+                                    <span class="th">年级</span>
+                                    <span class="th">总数</span>
+                                    <span class="th">优秀</span>
+                                    <span class="th">良好</span>
+                                    <span class="th">及格</span>
+                                    <span class="th">不及格</span>
+                                    <span class="th">优秀率</span>
+                                    <span class="th">及格率</span>
+                                    <span class="th">不及格率</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>一年级</td>
+                                            <td>500</td>
+                                            <td>100</td>
+                                            <td>200</td>
+                                            <td>100</td>
+                                            <td>100</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>二年级</td>
+                                            <td>450</td>
+                                            <td>150</td>
+                                            <td>100</td>
+                                            <td>80</td>
+                                            <td>120</td>
+                                            <td>18%</td>
+                                            <td>80%</td>
+                                            <td>22%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>三年级</td>
+                                            <td>568</td>
+                                            <td>160</td>
+                                            <td>200</td>
+                                            <td>108</td>
+                                            <td>100</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>四年级</td>
+                                            <td>400</td>
+                                            <td>100</td>
+                                            <td>150</td>
+                                            <td>100</td>
+                                            <td>150</td>
+                                            <td>20%</td>
+                                            <td>70%</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>五年级</td>
+                                            <td>450</td>
+                                            <td>150</td>
+                                            <td>100</td>
+                                            <td>80</td>
+                                            <td>120</td>
+                                            <td>18%</td>
+                                            <td>80%</td>
+                                            <td>22%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>六年级</td>
+                                            <td>500</td>
+                                            <td>100</td>
+                                            <td>200</td>
+                                            <td>100</td>
+                                            <td>100</td>
+                                            <td>20%</td>
+                                            <td>80%</td>
+                                            <td>20%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">班级体质排行榜</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">优秀率</a>
+                                <a href="javascript:" class="count_tab_001_a">及格率</a>
+                                <a href="javascript:" class="count_tab_001_a">不及格率</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_tab_001_detail current">
+                                    <div class="count_table_detail count_table_detail_3">
+                                        <span class="tr">
+                                            <span class="th">排名</span>
+                                            <span class="th">班级</span>
+                                            <span class="th">优秀率</span>
+                                        </span>
+                                        <div class="count_table_detail_main youxiu">
+                                            <table>
+                                                <tr>
+                                                    <td><img src="images/ico_first.png" class="img_qq" />
+                                                        第1名</td>
+                                                    <td>201</td>
+                                                    <td>90%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="images/ico_second.png" class="img_qq" />
+                                                        第2名</td>
+                                                    <td>101</td>
+                                                    <td>85%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="images/ico_third.png" class="img_qq" />
+                                                        第3名</td>
+                                                    <td>301</td>
+                                                    <td>80%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第4名</td>
+                                                    <td>601</td>
+                                                    <td>75%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第5名</td>
+                                                    <td>302</td>
+                                                    <td>70%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第6名</td>
+                                                    <td>403</td>
+                                                    <td>68%</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="count_tab_001_detail">
+                                    <div class="count_table_detail count_table_detail_3">
+                                        <span class="tr">
+                                            <span class="th">排名</span>
+                                            <span class="th">班级</span>
+                                            <span class="th">及格率</span>
+                                        </span>
+                                        <div class="count_table_detail_main youxiu">
+                                            <table>
+                                                <tr>
+                                                    <td>第1名</td>
+                                                    <td>301</td>
+                                                    <td>90%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第2名</td>
+                                                    <td>102</td>
+                                                    <td>85%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第3名</td>
+                                                    <td>304</td>
+                                                    <td>80%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第4名</td>
+                                                    <td>603</td>
+                                                    <td>75%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第5名</td>
+                                                    <td>303</td>
+                                                    <td>70%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第6名</td>
+                                                    <td>404</td>
+                                                    <td>68%</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="count_tab_001_detail">
+                                    <div class="count_table_detail count_table_detail_3">
+                                        <span class="tr">
+                                            <span class="th">排名</span>
+                                            <span class="th">班级</span>
+                                            <span class="th">不及格率</span>
+                                        </span>
+                                        <div class="count_table_detail_main bujige">
+                                            <table>
+                                                <tr>
+                                                    <td>第1名</td>
+                                                    <td>205</td>
+                                                    <td>90%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第2名</td>
+                                                    <td>104</td>
+                                                    <td>85%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第3名</td>
+                                                    <td>303</td>
+                                                    <td>80%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第4名</td>
+                                                    <td>602</td>
+                                                    <td>75%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第5名</td>
+                                                    <td>301</td>
+                                                    <td>70%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>第6名</td>
+                                                    <td>405</td>
+                                                    <td>68%</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">血氧血压心率测量</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_004">
+                                <a href="javascript:" class="count_tab_004_a current">血氧</a>
+                                <a href="javascript:" class="count_tab_004_a">血压</a>
+                                <a href="javascript:" class="count_tab_004_a">心率</a>
+                            </div>
+                            <div class="count_tab_004_main">
+                                <div class="count_tab_004_detail current" id="count_08"></div>
+                                <div class="count_tab_004_detail" id="count_09"></div>
+                                <div class="count_tab_004_detail" id="count_10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">体侧项目统计分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_005">
+                                <a href="javascript:" class="count_tab_005_a current">视图</a>
+                                <a href="javascript:" class="count_tab_005_a">列表</a>
+                            </div>
+                            <div class="count_tab_005_main">
+                                <div class="count_tab_005_detail current" id="count_11"></div>
+                                <div class="count_tab_005_detail">
+                                    <div class="count_table_detail count_table_detail_4">
+                                        <span class="tr">
+                                            <span class="th">项目</span>
+                                            <span class="th">优秀率</span>
+                                            <span class="th">及格率</span>
+                                            <span class="th">不及格率</span>
+                                            <span class="th">样品数</span>
+                                        </span>
+                                        <div class="count_table_detail_main">
+                                            <table>
+                                                <tr>
+                                                    <td>BMI</td>
+                                                    <td>30%</td>
+                                                    <td>80%</td>
+                                                    <td>20%</td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>50米跑</td>
+                                                    <td>30%</td>
+                                                    <td>80%</td>
+                                                    <td>20%</td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>立定跳远</td>
+                                                    <td>30%</td>
+                                                    <td>80%</td>
+                                                    <td>20%</td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>引体向上</td>
+                                                    <td>30%</td>
+                                                    <td>80%</td>
+                                                    <td>20%</td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>仰卧起坐</td>
+                                                    <td>30%</td>
+                                                    <td>80%</td>
+                                                    <td>20%</td>
+                                                    <td>100</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartPhysique.js"></script>
+</body>
+</html>

@@ -1,0 +1,779 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>食堂餐饮安全大数据分析平台</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countDining.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="ckplayer/ckplayer.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".count_tab_001_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_001_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_001_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_001_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		$(".count_tab_002_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_002_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_002_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_002_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });	
+		$(".count_tab_003_a").each(function(index, element) {
+           $(this).click(function(){
+		   	 	var this_index = index;
+				$(".count_tab_003_a").removeClass("current");
+				$(this).addClass("current");
+				$(".count_tab_003_detail").each(function(index, element) {
+					if(index==this_index){
+						$(".count_tab_003_detail").removeClass("current");
+						$(this).addClass("current");
+					}
+				});
+				myChart_resize();
+		   });
+        });
+		thisResize();
+	});
+	function thisResize(){
+		$(".fff_f_text").css("padding-left",$(".fff_f_img").innerWidth()+"px");
+	}
+</script>
+</head>
+
+<body>	
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a current"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+            	<div class="count_common_box" style="height:35%">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">阳光厨房情况</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="ygcfqk">
+                                <div class="ygcfqk_box">
+                                    <div class="ygcfqk_main">
+                                        <span class="img">
+                                            <img src="images/img_dining_001.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">50<span class="smallText">台</span></span><span class="text">监控设备</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ygcfqk_box">
+                                    <div class="ygcfqk_main">
+                                        <span class="img">
+                                            <img src="images/img_dining_002.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">5<span class="smallText">台</span></span><span class="text">餐具消毒</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ygcfqk_box">
+                                    <div class="ygcfqk_main">
+                                        <span class="img">
+                                            <img src="images/img_dining_003.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">15<span class="smallText">台</span></span><span class="text">紫外消毒灯</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ygcfqk_box">
+                                    <div class="ygcfqk_main">
+                                        <span class="img">
+                                            <img src="images/img_dining_004.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">3<span class="smallText">台</span></span><span class="text">巡检仪</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ygcfqk_box">
+                                    <div class="ygcfqk_main">
+                                        <span class="img">
+                                            <img src="images/img_dining_005.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">4<span class="smallText">名</span></span><span class="text">厨师</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ygcfqk_box">
+                                    <div class="ygcfqk_main">
+                                        <span class="img">
+                                            <img src="images/img_dining_006.png" alt="" />
+                                        </span>
+                                        <span class="mainText">
+                                            <span class="mainTextBox">
+                                                <span class="num">6<span class="smallText">名</span></span><span class="text">厨房职工</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            	<div class="count_common_box" style="height:35%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">学生及职工投诉情况</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_001">
+                                <a href="javascript:" class="count_tab_001_a current">投诉统计</a>
+                                <a href="javascript:" class="count_tab_001_a">投诉记录</a>
+                            </div>
+                            <div class="count_tab_001_main">
+                                <div class="count_tab_001_detail current" id="count_05"></div>
+                                <div class="count_tab_001_detail">
+                               		<div class="count_table_detail count_table_detail_4">
+                                        <span class="tr">
+                                            <span class="th">日期</span>
+                                            <span class="th">姓名</span>
+                                            <span class="th">事件</span>
+                                            <span class="th">结果</span>
+                                        </span>
+                                        <div class="count_table_detail_main">
+                                            <table>
+                                                <tr>
+                                                    <td>02-13</td>
+                                                    <td>201 李雪怡家长</td>
+                                                    <td>西红柿炒番茄出现虫子</td>
+                                                    <td>无记录已提醒厨房</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02-12</td>
+                                                    <td>张红老师</td>
+                                                    <td>餐具不干净</td>
+                                                    <td>有图属实已处理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02-12</td>
+                                                    <td>201 张爱玲</td>
+                                                    <td>地板太脏</td>
+                                                    <td>已处理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02-13</td>
+                                                    <td>201 李雪怡家长</td>
+                                                    <td>西红柿炒番茄出现虫子</td>
+                                                    <td>无记录已提醒厨房</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02-12</td>
+                                                    <td>张红老师</td>
+                                                    <td>餐具不干净</td>
+                                                    <td>有图属实已处理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02-12</td>
+                                                    <td>201 张爱玲</td>
+                                                    <td>地板太脏</td>
+                                                    <td>已处理</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">可燃气传感器状态</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-top:40px;">
+                            <div class="count_tab_003">
+                                <a href="javascript:" class="count_tab_003_a current">实时可燃气状态</a>
+                                <a href="javascript:" class="count_tab_003_a">预警历史</a>
+                            </div>
+                            <div class="count_tab_003_main">
+                                <div class="count_tab_003_detail current">
+                                	<div class="count_table_detail">
+                                        <span class="tr">
+                                            <span class="th">设备</span>
+                                            <span class="th">状态</span>
+                                            <span class="th">数据</span>
+                                        </span>
+                                        <div class="count_table_detail_main">
+                                            <table>
+                                                <tr>
+                                                    <td>可燃气01号</td>
+                                                    <td><span class="text_green">在线</span></td>
+                                                    <td>5ppm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>可燃气02号</td>
+                                                    <td><span class="text_red">离线</span></td>
+                                                    <td>--</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>可燃气03号</td>
+                                                    <td><span class="text_red">离线</span></td>
+                                                    <td>--</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>可燃气04号</td>
+                                                    <td><span class="text_green">在线</span></td>
+                                                    <td>0ppm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>可燃气05号</td>
+                                                    <td><span class="text_green">在线</span></td>
+                                                    <td>0ppm</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+                <div class="count_middle_001">
+                    <div class="count_middle_selectData">
+                        <div class="count_middle_selectDataBox" style="font-weight:bold;color:#46d9f8;">
+                            <div class="commonBoxTop"></div>
+                            <div class="commonBoxBottom"></div>
+                            安全设备 : 135台
+                        </div>
+                    </div>
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">本学期预警数</span>
+                                <br />
+                                <span style="font-size:45px;font-weight:bold;">230</span>
+                                <span style="font-size:16px;margin-left:10px;">起</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">最近进入厨房</span><span class="num">20<span style="font-size:13px;margin-left:8px;">人</span></span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><span class="text">最近离开厨房</span><span class="num">20<span style="font-size:13px;margin-left:8px;">人</span></span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                	<span class="text">最近进入食堂</span>
+                                	<span class="num">246<span style="font-size:13px;margin-left:8px;">人次 / 120人</span></span>
+                            	</div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left">
+                                	<span class="text">最近离开食堂</span>
+                                	<span class="num">246<span style="font-size:13px;margin-left:8px;">人次 / 120人</span></span>
+                            	</div>
+                            </div>
+                        </div>
+                        <div class="count_middle_001_left">
+                            <div class="count_middle_001_left_box" id="count_middle_001"></div>
+                            <div class="count_middle_001_left_box" id="count_middle_002"></div>
+                        </div>
+                        <div class="count_middle_001_right">
+                            <div class="count_middle_001_right_box" id="count_middle_003"></div>
+                            <div class="count_middle_001_right_box" id="count_middle_004"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_middle_002" style="height:15%;">
+                    <div class="count_middle_002_box" style="padding-top:0;">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div id="slideBox1" class="slideBox1">
+                            <div class="bd">
+                                <ul>
+                                    <li>
+                                        <div class="count_common_title">
+                                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                                            <span class="text">2019-02-13 安全巡检情况</span>
+                                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                                        </div>
+                                        <div class="count_common_detail" style="padding:0 15px;padding-top:35px;">
+                                            <span class="aqxjqkBox">消防安全情况 : <span class="text_green">100分</span></span>
+                                            <span class="aqxjqkBox">安全设备在线情况 : <span class="text_green">100分</span></span>
+                                            <span class="aqxjqkBox">用餐环境卫生情况 : <span class="text_green">100分</span></span>
+                                            <span class="aqxjqkBox">厨房工作卫生情况 : <span class="text_red">59分</span></span>
+                                            <span class="aqxjqkBox">配料保质情况 : <span class="text_green">100分</span></span>
+                                            <span class="aqxjqkBox">职工卫生护具情况 : <span class="text_green">100分</span></span>
+                                            <span class="aqxjqkBox">巡检图片 : 20张</span>
+                                            <span class="aqxjqkBox">巡检视频 : 2个</span>
+                                            <span class="aqxjqkBox">巡检备注 : 需要加强监控力度</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="count_common_title">
+                                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                                            <span class="text">2019-01-08 安全巡检情况</span>
+                                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                                        </div>
+                                        <div class="count_common_detail" style="padding:0 15px;padding-top:35px;">
+                                            <span class="aqxjqkBox">消防安全情况 : <span class="text_green">90分</span></span>
+                                            <span class="aqxjqkBox">安全设备在线情况 : <span class="text_green">95分</span></span>
+                                            <span class="aqxjqkBox">用餐环境卫生情况 : <span class="">80分</span></span>
+                                            <span class="aqxjqkBox">厨房工作卫生情况 : <span class="text_red">59分</span></span>
+                                            <span class="aqxjqkBox">配料保质情况 : <span class="text_green">100分</span></span>
+                                            <span class="aqxjqkBox">职工卫生护具情况 : <span class="text_green">100分</span></span>
+                                            <span class="aqxjqkBox">巡检图片 : 20张</span>
+                                            <span class="aqxjqkBox">巡检视频 : 2个</span>
+                                            <span class="aqxjqkBox">巡检备注 : 需要加强监控力度</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hd">
+                                <ul></ul>
+                            </div>
+                        </div>
+						<script type="text/javascript">
+                            setTimeout(function(){
+                                TouchSlide({ 
+                                    slideCell:"#slideBox1",
+                                    titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+                                    mainCell:".bd ul", 
+                                    effect:"leftLoop", 
+                                    autoPage:true,//自动分页
+                                    autoPlay:true, //自动播放
+                                    interTime:10000
+                                });
+                            },800);
+                        </script>
+                    </div>
+                </div>
+                <div class="count_middle_002" style="width:60%;height:30%;">
+                    <div class="count_middle_002_box">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">食堂餐饮安全预警</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="count_table_detail">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">事件</span>
+                                    <span class="th">备注</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>洗菜区健康不在线</td>
+                                            <td>故障已修复</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>可燃气02预警</td>
+                                            <td>测试</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>01-01溯源记录未上传</td>
+                                            <td>临时停餐</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>番茄酱一个月后过期</td>
+                                            <td>已经购置</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>监控02洗菜区不在线</td>
+                                            <td>故障已修复</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>可燃气02预警</td>
+                                            <td>测试</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>01-01溯源记录未上传</td>
+                                            <td>临时停餐</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>番茄酱一个月后过期</td>
+                                            <td>已经购置</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_middle_002" style="width:40%;height:30%;">
+                    <div class="count_middle_002_box">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">监控设备在线</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" style="padding-left:50px;padding-right:10px">
+                            <div class="count_tab_002">
+                                <a href="javascript:" class="count_tab_002_a current"><span>实<br />时<br />监<br />控</span></a>
+                                <a href="javascript:" class="count_tab_002_a"><span>在<br />线<br />率</span></a>
+                            </div>
+                            <div class="count_tab_002_main">
+                                <div class="count_tab_002_detail current">
+                                	<div id="slideBox3" class="slideBox2">
+                                        <div class="bd">
+                                            <ul>
+                                                <li>
+                                                	<span class="ssspBox">
+                                                    	<span class="ssspBoxMain">
+                                                        	<div id="video" style="width: 100%; height: 100%;"></div>
+															<!--<script type="text/javascript">
+                                                                var videoObject = {
+                                                                    container: '#video', //容器的ID或className
+                                                                    variable: 'player',//播放函数名称
+                                                                    flashplayer:true,
+																	loop: true,
+																	autoplay: true,
+                                                                    video: [//视频地址列表形式
+                                                                        ['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '中文标清', 0]
+                                                                    ]
+                                                                };
+                                                                var player = new ckplayer(videoObject);
+                                                            </script>-->
+                                                        </span>
+                                                        <span class="ssspBoxText">设备1</span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                	<span class="ssspBox">
+                                                    	<span class="ssspBoxMain">
+                                                        	<div id="video3" style="width: 100%; height: 100%;"></div>
+															<!--<script type="text/javascript">
+                                                                var videoObject3 = {
+                                                                    container: '#video3', //容器的ID或className
+                                                                    variable: 'player',//播放函数名称
+                                                                    flashplayer:true,
+																	loop: true,
+																	autoplay: true,
+                                                                    video: [//视频地址列表形式
+                                                                        ['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '中文标清', 0]
+                                                                    ]
+                                                                };
+                                                                var player = new ckplayer(videoObject3);
+                                                            </script>-->
+                                                        </span>
+                                                        <span class="ssspBoxText">设备2</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="hd">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        setTimeout(function(){
+                                            TouchSlide({ 
+												slideCell:"#slideBox3",
+												titCell:".hd ul", //开启自动分页 autoPage:true ,此时设置 titCell 为导航元素包裹层
+												mainCell:".bd ul", 
+												effect:"leftLoop", 
+												autoPage:true,//自动分页
+												autoPlay:true, //自动播放
+												interTime:10000
+											});
+                                        },800);
+                                    </script>
+                                </div>
+                                <div class="count_tab_002_detail" id="count_06"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+            <div class="count_common_box" style="height:35%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">食堂出入人脸识别</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="stcr">
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box">
+                                        <span class="img"><img src="images/img_user_009.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">401班 张晓峰</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 厨房出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box error">
+                                        <span class="img"><img src="images/img_user_001.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">未知身份</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 食堂出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box">
+                                        <span class="img"><img src="images/img_user_002.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">张琪老师</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 食堂出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box">
+                                        <span class="img"><img src="images/img_user_005.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">工作人员</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 厨房出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box">
+                                        <span class="img"><img src="images/img_user_004.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">501班 吴用</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 食堂出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box">
+                                        <span class="img"><img src="images/img_user_007.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">601班 吴宇森</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 厨房出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box">
+                                        <span class="img"><img src="images/img_user_006.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">201班 张晓杰</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 食堂出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            	<div class="stcr_li">
+                                	<div class="stcr_li_box">
+                                        <span class="img"><img src="images/img_user_008.jpg" al="" /></span>
+                                        <span class="text">
+                                            <span class="name">工作人员</span>
+                                            <span class="time">02-15 15:00</span>
+                                            <span class="messages">位置 : 厨房出入</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:35%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">配料安全情况</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div style="width:35%;height:100%;float:left;padding-top:25px;padding-left:10px;position:relative;">
+                            	<span style="position:absolute;font-size:14px;font-weight:bold;color:#46d9f8;top:0;left:15px;">过期日期统计</span>
+                            	<span id="count_07" style="width:100%;height:100%;float:left;"></span>
+                            </div>
+                        	<div style="width:65%;height:100%;float:left;padding-left:10px;padding-top:25px;position:relative;">
+                            	<span style="position:absolute;font-size:14px;font-weight:bold;color:#46d9f8;top:0;left:15px;">配料分类</span>
+                            	<span id="count_08" style="width:100%;height:100%;float:left;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">溯源记录</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="count_table_detail count_table_detail_5">
+                                <span class="tr">
+                                    <span class="th">日期</span>
+                                    <span class="th">图片</span>
+                                    <span class="th">视频</span>
+                                    <span class="th">状态</span>
+                                    <span class="th">结果</span>
+                                </span>
+                                <div class="count_table_detail_main">
+                                    <table>
+                                        <tr>
+                                            <td>02-13</td>
+                                            <td>20</td>
+                                            <td>5</td>
+                                            <td>提交中</td>
+                                            <td>合格</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-12</td>
+                                            <td>22</td>
+                                            <td>5</td>
+                                            <td><span class="text_green">通过</span></td>
+                                            <td>合格</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-11</td>
+                                            <td>22</td>
+                                            <td>5</td>
+                                            <td><span class="text_red">不通过</span></td>
+                                            <td>合格</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-10</td>
+                                            <td>20</td>
+                                            <td>5</td>
+                                            <td>提交中</td>
+                                            <td>合格</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-09</td>
+                                            <td>20</td>
+                                            <td>5</td>
+                                            <td>提交中</td>
+                                            <td>合格</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-08</td>
+                                            <td>20</td>
+                                            <td>5</td>
+                                            <td>提交中</td>
+                                            <td>合格</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02-07</td>
+                                            <td>20</td>
+                                            <td>5</td>
+                                            <td>提交中</td>
+                                            <td>合格</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartDining.js"></script>
+</body>
+</html>

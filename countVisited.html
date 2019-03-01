@@ -1,0 +1,480 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>来访安全大数据分析平台 - 平安校园大数据分析平台</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/countCommon.css" />
+<link rel="stylesheet" type="text/css" href="css/countVisited.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/starBg.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/countIndex.js"></script>
+<script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		count_ball_border();
+		$(".lfryxn_li_box").each(function(index, element) {
+			$(this).parent().children(".lfryxn_li_point").children(".lfryxn_li_num").children(".lfryxn_num").html($(this).children(".lfryxn_li_main").length-3);
+			if($(this).children(".lfryxn_li_main").length>3){
+				$(this).parent().children(".lfryxn_li_point").show();
+				$(this).children(".lfryxn_li_main").each(function(index, element) {
+					if(index>2){
+						$(this).hide();
+					}
+				});
+			}else{
+				$(this).parent().children(".lfryxn_li_point").hide();
+			}
+        });
+		$(".lfryxn_li_num").each(function(index, element) {
+            $(this).click(function(){
+				$(this).parent().parent().children(".lfryxn_li_box").children(".lfryxn_li_main").show();
+				$(this).parent().children(".lfryxn_li_hide").show();
+				$(this).hide();
+			});
+        });
+		$(".lfryxn_li_hide").each(function(index, element) {
+            $(this).click(function(){
+				$(this).parent().parent().children(".lfryxn_li_box").children(".lfryxn_li_main").each(function(index, element) {
+					if(index>2){
+						$(this).hide();
+					}
+				});
+				$(this).parent().children(".lfryxn_li_num").show();
+				$(this).hide();
+			});
+        });
+	});
+	$(window).resize(function(){
+		count_ball_border();
+	});
+	function count_ball_border(){
+		$(".count_ball_border").each(function(index, element) {
+			$(this).width($(this).height()+"px");
+			$(this).css("margin-left",-($(this).innerWidth()/2));
+		});
+		$(".count_ball_border_main").each(function(index, element) {
+			$(this).width($(this).height()+"px");
+		});
+	}
+</script>
+</head>
+
+<body>
+<div class="loading" id="loading">
+    <div class="arc"></div>
+    <h1><span>加载中</span></h1>
+</div>
+<div class="count_all">
+    <!-- 星星背景 Str-->
+    <div class="starBg"></div>
+    <!-- 星星背景 End-->
+    <div class="count_main">
+        <div class="count_title">
+            <div class="count_title_detail">
+                <div class="text">平安校园大数据分析平台</div>
+                <div class="count_nav_left">
+                    <a href="countIndex.html" class="count_nav_a"><i class="fa fa-home" style="font-size:18px;"></i>首页</a>
+                    <a href="countAttendance.html" class="count_nav_a"><i class="fa fa-calendar-check-o" style="font-size:15px;"></i>考勤</a>
+                    <a href="countFire.html" class="count_nav_a"><i class="fa fa-fire-extinguisher"></i>消防</a>
+                    <a href="countVisited.html" class="count_nav_a current"><i class="fa fa-id-card-o"></i>来访</a>
+                    <a href="countDormitory.html" class="count_nav_a"><i class="fa fa-hotel"></i>内宿</a>
+                    <a href="countSport.html" class="count_nav_a"><i class="fa fa-futbol-o"></i>体育</a>
+                </div>
+                <div class="count_nav_right">
+                    <a href="countSchoolCar.html" class="count_nav_a"><i class="fa fa-bus"></i>校车</a>
+                    <a href="countPhysique.html" class="count_nav_a"><i class="fa fa-child" style="font-size:18px;"></i>体质</a>
+                    <a href="countEnvironment.html" class="count_nav_a"><i class="fa fa-leaf"></i>环境</a>
+                    <a href="countSickness.html" class="count_nav_a"><i class="fa fa-bug"></i>疾病</a>
+                    <a href="countDining.html" class="count_nav_a"><i class="fa fa-cutlery" style="font-size:15px;"></i>食堂</a>
+                </div>
+            </div>
+        </div>
+        <div class="count_detail">
+            <!-- 详情代码Str -->
+            <div class="count_left">
+                <div class="count_common_box">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">实时访客记录</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="ssfkjl">
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_001.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">陈坚<span class="nameNum">本学期来访120次</span></span>
+                                        <span class="messages">来访时间 : 02-15 18:50</span>
+                                        <span class="messages">离开时间 : 02-15 20:50</span>
+                                        <span class="messages">被访部门 : 软件研发部</span>
+                                        <span class="messages">状态 : 离开</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_002.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">谢灿杰<span class="nameNum red">本学期来访1次</span></span>
+                                        <span class="messages">来访时间 : 02-15 18:50</span>
+                                        <span class="messages">离开时间 : --</span>
+                                        <span class="messages">被访部门 : 行政部</span>
+                                        <span class="messages">状态 : 来访</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_003.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">林洁钿<span class="nameNum">本学期来访20次</span></span>
+                                        <span class="messages">来访时间 : 02-15 17:50</span>
+                                        <span class="messages">离开时间 : 02-15 18:50</span>
+                                        <span class="messages">被访部门 : 人事部</span>
+                                        <span class="messages">状态 : 离开</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_004.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">蔡炜浩<span class="nameNum">本学期来访12次</span></span>
+                                        <span class="messages">来访时间 : 02-15 17:45</span>
+                                        <span class="messages">离开时间 : 02-15 17:50</span>
+                                        <span class="messages">被访部门 : 党政办公室</span>
+                                        <span class="messages">状态 : 离开</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_005.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">刘梓帆<span class="nameNum red">本学期来访1次</span></span>
+                                        <span class="messages">来访时间 : 02-15 14:50</span>
+                                        <span class="messages">离开时间 : --</span>
+                                        <span class="messages">被访部门 : 软件研发部</span>
+                                        <span class="messages">状态 : 来访</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_006.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">林少冰<span class="nameNum">本学期来访20次</span></span>
+                                        <span class="messages">来访时间 : 02-15 13:50</span>
+                                        <span class="messages">离开时间 : 02-15 14:00</span>
+                                        <span class="messages">被访部门 : 软件研发部</span>
+                                        <span class="messages">状态 : 来访</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_007.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">林博<span class="nameNum">本学期来访20次</span></span>
+                                        <span class="messages">来访时间 : 02-15 12:50</span>
+                                        <span class="messages">离开时间 : 02-15 13:20</span>
+                                        <span class="messages">被访部门 : 软件研发部</span>
+                                        <span class="messages">状态 : 来访</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_008.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">蔡伟煜<span class="nameNum">本学期来访20次</span></span>
+                                        <span class="messages">来访时间 : 02-15 18:50</span>
+                                        <span class="messages">离开时间 : 02-15 20:50</span>
+                                        <span class="messages">被访部门 : 软件研发部</span>
+                                        <span class="messages">状态 : 来访</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_009.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">沈剑鹏<span class="nameNum">本学期来访20次</span></span>
+                                        <span class="messages">来访时间 : 02-15 18:50</span>
+                                        <span class="messages">离开时间 : 02-15 20:50</span>
+                                        <span class="messages">被访部门 : 软件研发部</span>
+                                        <span class="messages">状态 : 来访</span>
+                                    </span>
+                                </div>
+                            	<div class="ssfkjl_li">
+                                	<span class="img"><img src="images/img_user_010.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">佘奕楷<span class="nameNum">本学期来访20次</span></span>
+                                        <span class="messages">来访时间 : 02-15 18:50</span>
+                                        <span class="messages">离开时间 : 02-15 20:50</span>
+                                        <span class="messages">被访部门 : 软件研发部</span>
+                                        <span class="messages">状态 : 来访</span>
+                                    </span>
+                                </div>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_middle">
+            	<div class="count_middle_001">
+                    <div class="count_middle_001_box">
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><img src="images/visited_img_001.png" alt="" /><span class="text">今日来访(人)</span><span class="num">143</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><img src="images/visited_img_002.png" alt="" /><span class="text">今日离开(人)</span><span class="num">38</span></div>
+                            </div>
+                        </div>
+                        <div class="count_middle_001_text">
+                            <span class="text">
+                                <span style="font-size:17px;">本学期累计来访人次</span>
+                                <br />
+                                <span style="font-size:43px;font-weight:bold;">235956</span>
+                                <span style="font-size:16px;margin-left:10px;">人次</span>
+                            </span>
+                        </div>
+                        <div class="count_middle_001_num">
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><img src="images/visited_img_003.png" alt="" /><span class="text">今日车辆(辆)</span><span class="num">20</span></div>
+                            </div>
+                            <div class="count_middle_001_num_box">
+                                <div class="count_middle_001_num_main count_middle_001_num_left"><img src="images/visited_img_004.png" alt="" /><span class="text">今日预约(人)</span><span class="num">12</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">周来访记录</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <span class="lfjlText">
+                        	本月来访总数 : 250
+                        </span>
+                        <div class="count_common_detail" id="count_01">
+                        	
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="width:50%;height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">被访事由分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_02">
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="width:50%;height:30%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">被访部门分析</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail" id="count_03">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count_right">
+                <div class="count_common_box" style="height:20%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">来访安全统计</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                            <div class="count_lfaq count_lfaq_01">
+                                <div class="count_ball_border">
+                                    <div class="count_ball_border_main">
+                                        <span class="count_ball_border_main_text">80%</span>
+                                        <div class="waveBox" style="margin-top:20%;" name="占比80%">
+                                            <div class="wave wave1"></div>
+                                            <div class="wave wave2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="count_ball_text">来访实名率</div>
+                            </div>
+                            <div class="count_lfaq count_lfaq_02">
+                                <div class="count_ball_border">
+                                    <div class="count_ball_border_main">
+                                        <span class="count_ball_border_main_text">90%</span>
+                                        <div class="waveBox" style="margin-top:10%;" name="占比90%">
+                                            <div class="wave wave1"></div>
+                                            <div class="wave wave2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="count_ball_text">被访确认率</div>
+                            </div>
+                            <div class="count_lfaq count_lfaq_03">
+                                <div class="count_ball_border">
+                                    <div class="count_ball_border_main">
+                                        <span class="count_ball_border_main_text">95%</span>
+                                        <div class="waveBox" style="margin-top:5%;" name="占比95%">
+                                            <div class="wave wave1"></div>
+                                            <div class="wave wave2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="count_ball_text">轨迹偏移信任率</div>
+                            </div>
+                            <div class="count_lfaq count_lfaq_05">
+                                <div class="count_ball_border">
+                                    <div class="count_ball_border_main">
+                                        <span class="count_ball_border_main_text">88%</span>
+                                        <div class="waveBox" style="margin-top:12%;" name="占比88%">
+                                            <div class="wave wave1"></div>
+                                            <div class="wave wave2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="count_ball_text">离开确认率</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:40%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">来访人校内轨迹</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="lfryxn">
+                            	<div class="lfryxn_li">
+                                	<span class="img"><img src="images/img_user_004.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">蔡炜浩</span>
+                                        <span class="time text_green">状态 : 在校</span>
+                                        <span class="messages">
+                                        	校内轨迹 (被访部门 : 软件研发部) : <br />
+                                            <span class="lfryxn_li_box">
+                                                <span class="lfryxn_li_main text_red"><i class="fa fa-map-marker"></i>[01-23 10:58] 教学楼B栋4楼电梯口(停留超过30分钟)</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:40] 203办公室</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 11:00] 403办公室</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:58] 教学楼B栋4楼电梯口</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:43] 学校大门</span>
+                                            </span>
+                                            <span class="lfryxn_li_point">
+                                            	<a href="javascript:" class="lfryxn_li_num"><i class="fa fa-map-marker"></i>点击查看<span class="lfryxn_num">0</span>个隐藏位置</a>
+                                            	<a href="javascript:" class="lfryxn_li_hide"><i class="fa fa-map-marker"></i>隐藏更多位置信息</a>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                            	<div class="lfryxn_li">
+                                	<span class="img"><img src="images/img_user_001.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">陈坚</span>
+                                        <span class="time text_green">状态 : 在校</span>
+                                        <span class="messages">
+                                        	校内轨迹 (被访部门 : 软件研发部) : <br />
+                                            <span class="lfryxn_li_box">
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:58] 教学楼B栋4楼电梯口</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:43] 学校大门</span>
+                                            </span>
+                                            <span class="lfryxn_li_point">
+                                            	<a href="javascript:" class="lfryxn_li_num"><i class="fa fa-map-marker"></i>点击查看<span class="lfryxn_num">0</span>个隐藏位置</a>
+                                            	<a href="javascript:" class="lfryxn_li_hide"><i class="fa fa-map-marker"></i>隐藏更多位置信息</a>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                            	<div class="lfryxn_li">
+                                	<span class="img"><img src="images/img_user_002.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">谢灿杰</span>
+                                        <span class="time">状态 : 离开</span>
+                                        <span class="messages">
+                                        	校内轨迹 (被访部门 : 软件研发部) : <br />
+                                            <span class="lfryxn_li_box">
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 11:55] 学校大门</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:58] 教学楼B栋4楼电梯口</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:40] 203办公室</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 11:00] 403办公室</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:58] 教学楼B栋4楼电梯口</span>
+                                                <span class="lfryxn_li_main"><i class="fa fa-map-marker"></i>[01-23 10:43] 学校大门</span>
+                                            </span>
+                                            <span class="lfryxn_li_point">
+                                            	<a href="javascript:" class="lfryxn_li_num"><i class="fa fa-map-marker"></i>点击查看<span class="lfryxn_num">0</span>个隐藏位置</a>
+                                            	<a href="javascript:" class="lfryxn_li_hide"><i class="fa fa-map-marker"></i>隐藏更多位置信息</a>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="count_common_box" style="height:40%;">
+                    <div class="count_common_main">
+                        <div class="commonBoxTop"></div>
+                        <div class="commonBoxBottom"></div>
+                        <div class="count_common_title">
+                            <img src="images/svg_gif_001.svg" class="img_left" alt="" />
+                            <span class="text">未实名制来访人轨迹</span>
+                            <img src="images/svg_gif_001.svg" class="img_right" alt="" />
+                        </div>
+                        <div class="count_common_detail">
+                        	<div class="wsmzlf">
+                            	<div class="wsmzlf_li error">
+                                	<span class="img"><img src="images/img_user_005.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">位置 : 教学楼A1号楼梯</span>
+                                        <span class="time">02-15 15:00</span>
+                                        <span class="messages">陌生112号</span>
+                                        <span class="messages text_red">异常原因 : 停留时间过长</span>
+                                    </span>
+                                </div>
+                            	<div class="wsmzlf_li">
+                                	<span class="img"><img src="images/img_user_008.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">位置 : 教学楼A1号楼梯</span>
+                                        <span class="time">02-15 15:00</span>
+                                        <span class="messages">陌生112号</span>
+                                    </span>
+                                </div>
+                            	<div class="wsmzlf_li">
+                                	<span class="img"><img src="images/img_user_010.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">位置 : 教学楼A1号楼梯</span>
+                                        <span class="time">02-15 15:00</span>
+                                        <span class="messages">陌生112号</span>
+                                    </span>
+                                </div>
+                            	<div class="wsmzlf_li">
+                                	<span class="img"><img src="images/img_user_009.jpg" al="" /></span>
+                                    <span class="text">
+                                    	<span class="name">位置 : 教学楼A1号楼梯</span>
+                                        <span class="time">02-15 15:00</span>
+                                        <span class="messages">陌生112号</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 详情代码End -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/countEchartVisited.js"></script>
+</body>
+</html>

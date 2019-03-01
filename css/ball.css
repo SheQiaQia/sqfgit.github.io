@@ -1,0 +1,37 @@
+/** {
+	margin: 0;
+	padding: 0;
+}*/
+
+#main {
+	position: relative;
+	/*height: 500px !important;
+	width: 740px !important;*/
+}
+
+#main div {
+	text-align: center;
+	color: white;
+	line-height: 100px;
+	overflow: hidden;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	opacity: 1;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	background-color:rgba(4,203,245,0.2);
+	border: 2px solid #04cbf5;
+	
+}
+.main_p1{
+	height: 50px;
+	line-height: 80px;
+	width: 100%;
+}
+.main_p2{
+	height: 50px;
+	line-height: 15px;
+	width: 100%;
+}
